@@ -1,5 +1,0 @@
-c:\users\david\documents\visual studio 2010\Projects\PET\PET\bin\PET.dll
-c:\users\david\documents\visual studio 2010\Projects\PET\PET\bin\PET.pdb
-c:\users\david\documents\visual studio 2010\Projects\PET\PET\obj\Debug\ResolveAssemblyReference.cache
-c:\users\david\documents\visual studio 2010\Projects\PET\PET\obj\Debug\PET.dll
-c:\users\david\documents\visual studio 2010\Projects\PET\PET\obj\Debug\PET.pdb
