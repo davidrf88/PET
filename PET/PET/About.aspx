@@ -8,6 +8,6 @@
         About
     </h2>
     <p>
-        Put content here.
+        Lista de Gatos
     </p>
 </asp:Content>
