@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Profile;
 
 namespace PET.Account
 {
@@ -26,6 +27,20 @@ namespace PET.Account
                 continueUrl = "~/";
             }
             Response.Redirect(continueUrl);
+        }
+
+        protected void RegisterUser_CreatingUser(object sender, LoginCancelEventArgs e)
+        {
+           var c = ProfileBase.Properties;
+
+            
+           
+
+          
+
+           
+         
+            
         }
 
     }

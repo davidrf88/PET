@@ -10,24 +10,24 @@
 namespace PET {
     
     
-    public partial class _Default {
+    public partial class register2 {
         
         /// <summary>
-        /// Button1 control.
+        /// RegisterUser control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.CreateUserWizard RegisterUser;
         
         /// <summary>
-        /// Username control.
+        /// RegisterUserWizardStep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Username;
+        protected global::System.Web.UI.WebControls.CreateUserWizardStep RegisterUserWizardStep;
     }
 }

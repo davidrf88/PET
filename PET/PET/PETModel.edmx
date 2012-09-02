@@ -1,0 +1,814 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="2.0" xmlns:edmx="http://schemas.microsoft.com/ado/2008/10/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PETModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+        <EntityContainer Name="PETModelStoreContainer">
+          <EntitySet Name="aspnet_Roles" EntityType="PETModel.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_Users" EntityType="PETModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="aspnet_UsersInRoles" EntityType="PETModel.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Contactos" EntityType="PETModel.Store.Contactos" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Estados" EntityType="PETModel.Store.Estados" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Mascotas" EntityType="PETModel.Store.Mascotas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Mensajes" EntityType="PETModel.Store.Mensajes" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Municipios" EntityType="PETModel.Store.Municipios" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Razas" EntityType="PETModel.Store.Razas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TiposMascotas" EntityType="PETModel.Store.TiposMascotas" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Usuarios" EntityType="PETModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__aspnet_Us__RoleI__4AB81AF0" Association="PETModel.Store.FK__aspnet_Us__RoleI__4AB81AF0">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aspnet_Us__UserI__49C3F6B7" Association="PETModel.Store.FK__aspnet_Us__UserI__49C3F6B7">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactos_Mascotas" Association="PETModel.Store.FK_Contactos_Mascotas">
+            <End Role="Mascotas" EntitySet="Mascotas" />
+            <End Role="Contactos" EntitySet="Contactos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactos_Mascotas1" Association="PETModel.Store.FK_Contactos_Mascotas1">
+            <End Role="Mascotas" EntitySet="Mascotas" />
+            <End Role="Contactos" EntitySet="Contactos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactos_Usuarios" Association="PETModel.Store.FK_Contactos_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Contactos" EntitySet="Contactos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mascotas_Razas" Association="PETModel.Store.FK_Mascotas_Razas">
+            <End Role="Razas" EntitySet="Razas" />
+            <End Role="Mascotas" EntitySet="Mascotas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mascotas_Usuarios" Association="PETModel.Store.FK_Mascotas_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Mascotas" EntitySet="Mascotas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mensajes_Contactos" Association="PETModel.Store.FK_Mensajes_Contactos">
+            <End Role="Contactos" EntitySet="Contactos" />
+            <End Role="Mensajes" EntitySet="Mensajes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Municipios_Estados" Association="PETModel.Store.FK_Municipios_Estados">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Municipios" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Razas_TiposMascotas" Association="PETModel.Store.FK_Razas_TiposMascotas">
+            <End Role="TiposMascotas" EntitySet="TiposMascotas" />
+            <End Role="Razas" EntitySet="Razas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_aspnet_Users" Association="PETModel.Store.FK_Usuarios_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Municipios" Association="PETModel.Store.FK_Usuarios_Municipios">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredRoleName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="Description" Type="nvarchar" MaxLength="256" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="LoweredUserName" Type="nvarchar" Nullable="false" MaxLength="256" />
+          <Property Name="MobileAlias" Type="nvarchar" MaxLength="16" />
+          <Property Name="IsAnonymous" Type="bit" Nullable="false" />
+          <Property Name="LastActivityDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="aspnet_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="RoleId" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Contactos">
+          <Key>
+            <PropertyRef Name="Contacto_Id" />
+          </Key>
+          <Property Name="Contacto_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MascotaId" Type="int" Nullable="false" />
+          <Property Name="UsuarioId" Type="int" Nullable="false" />
+          <Property Name="MascotaUsuarioId" Type="int" />
+          <Property Name="MensajeContactante" Type="varchar(max)" Nullable="false" />
+          <Property Name="MensajeContactado" Type="varchar(max)" />
+          <Property Name="Status" Type="varchar(max)" Nullable="false" />
+          <Property Name="FechaContacto" Type="datetime" Nullable="false" />
+          <Property Name="FechaRespuesta" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="Estado_Id" />
+          </Key>
+          <Property Name="Estado_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mascotas">
+          <Key>
+            <PropertyRef Name="Mascota_Id" />
+          </Key>
+          <Property Name="Mascota_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="UsuarioId" Type="int" Nullable="false" />
+          <Property Name="RazaId" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar(max)" Nullable="false" />
+          <Property Name="Edad" Type="numeric" Nullable="false" Precision="2" Scale="1" />
+          <Property Name="EsMacho" Type="bit" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="Publico" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Mensajes">
+          <Key>
+            <PropertyRef Name="Mensaje_Id" />
+          </Key>
+          <Property Name="Mensaje_Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ContactoId" Type="bigint" Nullable="false" />
+          <Property Name="Mensaje" Type="varchar(max)" Nullable="false" />
+          <Property Name="EmisorContactante" Type="bit" Nullable="false" />
+          <Property Name="Leido" Type="bit" Nullable="false" />
+          <Property Name="FechaEnviado" Type="datetime" Nullable="false" />
+          <Property Name="FechaLectura" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Municipios">
+          <Key>
+            <PropertyRef Name="Municipio_Id" />
+          </Key>
+          <Property Name="Municipio_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EstadoId" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="nchar" Nullable="false" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Razas">
+          <Key>
+            <PropertyRef Name="Raza_Id" />
+          </Key>
+          <Property Name="Raza_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="TipoId" Type="int" Nullable="false" />
+          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TiposMascotas">
+          <Key>
+            <PropertyRef Name="Tipo_Id" />
+          </Key>
+          <Property Name="Tipo_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Usuario_Id" />
+          </Key>
+          <Property Name="Usuario_Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario_UID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="MunicipioId" Type="int" />
+          <Property Name="Latitud" Type="varchar(max)" />
+          <Property Name="Longitud" Type="varchar(max)" />
+          <Property Name="Status" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__aspnet_Us__RoleI__4AB81AF0">
+          <End Role="aspnet_Roles" Type="PETModel.Store.aspnet_Roles" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="PETModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aspnet_Us__UserI__49C3F6B7">
+          <End Role="aspnet_Users" Type="PETModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_UsersInRoles" Type="PETModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactos_Mascotas">
+          <End Role="Mascotas" Type="PETModel.Store.Mascotas" Multiplicity="1" />
+          <End Role="Contactos" Type="PETModel.Store.Contactos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mascotas">
+              <PropertyRef Name="Mascota_Id" />
+            </Principal>
+            <Dependent Role="Contactos">
+              <PropertyRef Name="MascotaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactos_Mascotas1">
+          <End Role="Mascotas" Type="PETModel.Store.Mascotas" Multiplicity="0..1" />
+          <End Role="Contactos" Type="PETModel.Store.Contactos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mascotas">
+              <PropertyRef Name="Mascota_Id" />
+            </Principal>
+            <Dependent Role="Contactos">
+              <PropertyRef Name="MascotaUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactos_Usuarios">
+          <End Role="Usuarios" Type="PETModel.Store.Usuarios" Multiplicity="1" />
+          <End Role="Contactos" Type="PETModel.Store.Contactos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Usuario_Id" />
+            </Principal>
+            <Dependent Role="Contactos">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mascotas_Razas">
+          <End Role="Razas" Type="PETModel.Store.Razas" Multiplicity="1" />
+          <End Role="Mascotas" Type="PETModel.Store.Mascotas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Razas">
+              <PropertyRef Name="Raza_Id" />
+            </Principal>
+            <Dependent Role="Mascotas">
+              <PropertyRef Name="RazaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mascotas_Usuarios">
+          <End Role="Usuarios" Type="PETModel.Store.Usuarios" Multiplicity="1" />
+          <End Role="Mascotas" Type="PETModel.Store.Mascotas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Usuario_Id" />
+            </Principal>
+            <Dependent Role="Mascotas">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mensajes_Contactos">
+          <End Role="Contactos" Type="PETModel.Store.Contactos" Multiplicity="1" />
+          <End Role="Mensajes" Type="PETModel.Store.Mensajes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contactos">
+              <PropertyRef Name="Contacto_Id" />
+            </Principal>
+            <Dependent Role="Mensajes">
+              <PropertyRef Name="ContactoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Municipios_Estados">
+          <End Role="Estados" Type="PETModel.Store.Estados" Multiplicity="1" />
+          <End Role="Municipios" Type="PETModel.Store.Municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="Estado_Id" />
+            </Principal>
+            <Dependent Role="Municipios">
+              <PropertyRef Name="EstadoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Razas_TiposMascotas">
+          <End Role="TiposMascotas" Type="PETModel.Store.TiposMascotas" Multiplicity="1" />
+          <End Role="Razas" Type="PETModel.Store.Razas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposMascotas">
+              <PropertyRef Name="Tipo_Id" />
+            </Principal>
+            <Dependent Role="Razas">
+              <PropertyRef Name="TipoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_aspnet_Users">
+          <End Role="aspnet_Users" Type="PETModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="Usuarios" Type="PETModel.Store.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Usuario_UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Municipios">
+          <End Role="Municipios" Type="PETModel.Store.Municipios" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="PETModel.Store.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="Municipio_Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="MunicipioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PETModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+        <EntityContainer Name="PETEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Contactos" EntityType="PETModel.Contactos" />
+          <EntitySet Name="Estados" EntityType="PETModel.Estados" />
+          <EntitySet Name="Mascotas" EntityType="PETModel.Mascotas" />
+          <EntitySet Name="Mensajes" EntityType="PETModel.Mensajes" />
+          <EntitySet Name="Municipios" EntityType="PETModel.Municipios" />
+          <EntitySet Name="Razas" EntityType="PETModel.Razas" />
+          <EntitySet Name="TiposMascotas" EntityType="PETModel.TiposMascotas" />
+          <EntitySet Name="Usuarios" EntityType="PETModel.Usuarios" />
+          <AssociationSet Name="FK_Contactos_Mascotas" Association="PETModel.FK_Contactos_Mascotas">
+            <End Role="Mascotas" EntitySet="Mascotas" />
+            <End Role="Contactos" EntitySet="Contactos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactos_Mascotas1" Association="PETModel.FK_Contactos_Mascotas1">
+            <End Role="Mascotas" EntitySet="Mascotas" />
+            <End Role="Contactos" EntitySet="Contactos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contactos_Usuarios" Association="PETModel.FK_Contactos_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Contactos" EntitySet="Contactos" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mensajes_Contactos" Association="PETModel.FK_Mensajes_Contactos">
+            <End Role="Contactos" EntitySet="Contactos" />
+            <End Role="Mensajes" EntitySet="Mensajes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Municipios_Estados" Association="PETModel.FK_Municipios_Estados">
+            <End Role="Estados" EntitySet="Estados" />
+            <End Role="Municipios" EntitySet="Municipios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mascotas_Razas" Association="PETModel.FK_Mascotas_Razas">
+            <End Role="Razas" EntitySet="Razas" />
+            <End Role="Mascotas" EntitySet="Mascotas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Mascotas_Usuarios" Association="PETModel.FK_Mascotas_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Mascotas" EntitySet="Mascotas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Usuarios_Municipios" Association="PETModel.FK_Usuarios_Municipios">
+            <End Role="Municipios" EntitySet="Municipios" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Razas_TiposMascotas" Association="PETModel.FK_Razas_TiposMascotas">
+            <End Role="TiposMascotas" EntitySet="TiposMascotas" />
+            <End Role="Razas" EntitySet="Razas" />
+          </AssociationSet>
+          <EntitySet Name="aspnet_Roles" EntityType="PETModel.aspnet_Roles" />
+          <EntitySet Name="aspnet_Users" EntityType="PETModel.aspnet_Users" />
+          <AssociationSet Name="FK_Usuarios_aspnet_Users" Association="PETModel.FK_Usuarios_aspnet_Users">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="Usuarios" EntitySet="Usuarios" />
+          </AssociationSet>
+          <AssociationSet Name="aspnet_UsersInRoles" Association="PETModel.aspnet_UsersInRoles">
+            <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Contactos">
+          <Key>
+            <PropertyRef Name="Contacto_Id" />
+          </Key>
+          <Property Name="Contacto_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MascotaId" Type="Int32" Nullable="false" />
+          <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+          <Property Name="MascotaUsuarioId" Type="Int32" />
+          <Property Name="MensajeContactante" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="MensajeContactado" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="FechaContacto" Type="DateTime" Nullable="false" />
+          <Property Name="FechaRespuesta" Type="DateTime" />
+          <NavigationProperty Name="Mascotas" Relationship="PETModel.FK_Contactos_Mascotas" FromRole="Contactos" ToRole="Mascotas" />
+          <NavigationProperty Name="Mascotas1" Relationship="PETModel.FK_Contactos_Mascotas1" FromRole="Contactos" ToRole="Mascotas" />
+          <NavigationProperty Name="Usuarios" Relationship="PETModel.FK_Contactos_Usuarios" FromRole="Contactos" ToRole="Usuarios" />
+          <NavigationProperty Name="Mensajes" Relationship="PETModel.FK_Mensajes_Contactos" FromRole="Contactos" ToRole="Mensajes" />
+        </EntityType>
+        <EntityType Name="Estados">
+          <Key>
+            <PropertyRef Name="Estado_Id" />
+          </Key>
+          <Property Name="Estado_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Municipios" Relationship="PETModel.FK_Municipios_Estados" FromRole="Estados" ToRole="Municipios" />
+        </EntityType>
+        <EntityType Name="Mascotas">
+          <Key>
+            <PropertyRef Name="Mascota_Id" />
+          </Key>
+          <Property Name="Mascota_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UsuarioId" Type="Int32" Nullable="false" />
+          <Property Name="RazaId" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Descripcion" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Edad" Type="Decimal" Nullable="false" Precision="2" Scale="1" />
+          <Property Name="EsMacho" Type="Boolean" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="Publico" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Contactos" Relationship="PETModel.FK_Contactos_Mascotas" FromRole="Mascotas" ToRole="Contactos" />
+          <NavigationProperty Name="Contactos1" Relationship="PETModel.FK_Contactos_Mascotas1" FromRole="Mascotas" ToRole="Contactos" />
+          <NavigationProperty Name="Razas" Relationship="PETModel.FK_Mascotas_Razas" FromRole="Mascotas" ToRole="Razas" />
+          <NavigationProperty Name="Usuarios" Relationship="PETModel.FK_Mascotas_Usuarios" FromRole="Mascotas" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Mensajes">
+          <Key>
+            <PropertyRef Name="Mensaje_Id" />
+          </Key>
+          <Property Name="Mensaje_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactoId" Type="Int64" Nullable="false" />
+          <Property Name="Mensaje" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="EmisorContactante" Type="Boolean" Nullable="false" />
+          <Property Name="Leido" Type="Boolean" Nullable="false" />
+          <Property Name="FechaEnviado" Type="DateTime" Nullable="false" />
+          <Property Name="FechaLectura" Type="DateTime" />
+          <NavigationProperty Name="Contactos" Relationship="PETModel.FK_Mensajes_Contactos" FromRole="Mensajes" ToRole="Contactos" />
+        </EntityType>
+        <EntityType Name="Municipios">
+          <Key>
+            <PropertyRef Name="Municipio_Id" />
+          </Key>
+          <Property Name="Municipio_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EstadoId" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="10" Unicode="true" FixedLength="true" />
+          <NavigationProperty Name="Estados" Relationship="PETModel.FK_Municipios_Estados" FromRole="Municipios" ToRole="Estados" />
+          <NavigationProperty Name="Usuarios" Relationship="PETModel.FK_Usuarios_Municipios" FromRole="Municipios" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Razas">
+          <Key>
+            <PropertyRef Name="Raza_Id" />
+          </Key>
+          <Property Name="Raza_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TipoId" Type="Int32" Nullable="false" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Mascotas" Relationship="PETModel.FK_Mascotas_Razas" FromRole="Razas" ToRole="Mascotas" />
+          <NavigationProperty Name="TiposMascotas" Relationship="PETModel.FK_Razas_TiposMascotas" FromRole="Razas" ToRole="TiposMascotas" />
+        </EntityType>
+        <EntityType Name="TiposMascotas">
+          <Key>
+            <PropertyRef Name="Tipo_Id" />
+          </Key>
+          <Property Name="Tipo_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Razas" Relationship="PETModel.FK_Razas_TiposMascotas" FromRole="TiposMascotas" ToRole="Razas" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="Usuario_Id" />
+          </Key>
+          <Property Name="Usuario_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Usuario_UID" Type="Guid" Nullable="false" />
+          <Property Name="MunicipioId" Type="Int32" />
+          <Property Name="Latitud" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Longitud" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <Property Name="Status" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="Contactos" Relationship="PETModel.FK_Contactos_Usuarios" FromRole="Usuarios" ToRole="Contactos" />
+          <NavigationProperty Name="Mascotas" Relationship="PETModel.FK_Mascotas_Usuarios" FromRole="Usuarios" ToRole="Mascotas" />
+          <NavigationProperty Name="Municipios" Relationship="PETModel.FK_Usuarios_Municipios" FromRole="Usuarios" ToRole="Municipios" />
+          <NavigationProperty Name="aspnet_Users" Relationship="PETModel.FK_Usuarios_aspnet_Users" FromRole="Usuarios" ToRole="aspnet_Users" />
+        </EntityType>
+        <Association Name="FK_Contactos_Mascotas">
+          <End Role="Mascotas" Type="PETModel.Mascotas" Multiplicity="1" />
+          <End Role="Contactos" Type="PETModel.Contactos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mascotas">
+              <PropertyRef Name="Mascota_Id" />
+            </Principal>
+            <Dependent Role="Contactos">
+              <PropertyRef Name="MascotaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactos_Mascotas1">
+          <End Role="Mascotas" Type="PETModel.Mascotas" Multiplicity="0..1" />
+          <End Role="Contactos" Type="PETModel.Contactos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Mascotas">
+              <PropertyRef Name="Mascota_Id" />
+            </Principal>
+            <Dependent Role="Contactos">
+              <PropertyRef Name="MascotaUsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contactos_Usuarios">
+          <End Role="Usuarios" Type="PETModel.Usuarios" Multiplicity="1" />
+          <End Role="Contactos" Type="PETModel.Contactos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Usuario_Id" />
+            </Principal>
+            <Dependent Role="Contactos">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mensajes_Contactos">
+          <End Role="Contactos" Type="PETModel.Contactos" Multiplicity="1" />
+          <End Role="Mensajes" Type="PETModel.Mensajes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Contactos">
+              <PropertyRef Name="Contacto_Id" />
+            </Principal>
+            <Dependent Role="Mensajes">
+              <PropertyRef Name="ContactoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Municipios_Estados">
+          <End Role="Estados" Type="PETModel.Estados" Multiplicity="1" />
+          <End Role="Municipios" Type="PETModel.Municipios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estados">
+              <PropertyRef Name="Estado_Id" />
+            </Principal>
+            <Dependent Role="Municipios">
+              <PropertyRef Name="EstadoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mascotas_Razas">
+          <End Role="Razas" Type="PETModel.Razas" Multiplicity="1" />
+          <End Role="Mascotas" Type="PETModel.Mascotas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Razas">
+              <PropertyRef Name="Raza_Id" />
+            </Principal>
+            <Dependent Role="Mascotas">
+              <PropertyRef Name="RazaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Mascotas_Usuarios">
+          <End Role="Usuarios" Type="PETModel.Usuarios" Multiplicity="1" />
+          <End Role="Mascotas" Type="PETModel.Mascotas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="Usuario_Id" />
+            </Principal>
+            <Dependent Role="Mascotas">
+              <PropertyRef Name="UsuarioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Usuarios_Municipios">
+          <End Role="Municipios" Type="PETModel.Municipios" Multiplicity="0..1" />
+          <End Role="Usuarios" Type="PETModel.Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Municipios">
+              <PropertyRef Name="Municipio_Id" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="MunicipioId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Razas_TiposMascotas">
+          <End Role="TiposMascotas" Type="PETModel.TiposMascotas" Multiplicity="1" />
+          <End Role="Razas" Type="PETModel.Razas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposMascotas">
+              <PropertyRef Name="Tipo_Id" />
+            </Principal>
+            <Dependent Role="Razas">
+              <PropertyRef Name="TipoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="aspnet_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="RoleId" Nullable="false" />
+          <Property Type="String" Name="RoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredRoleName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Users" Relationship="PETModel.aspnet_UsersInRoles" FromRole="aspnet_Roles" ToRole="aspnet_Users" />
+        </EntityType>
+        <EntityType Name="aspnet_Users">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredUserName" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobileAlias" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsAnonymous" Nullable="false" />
+          <Property Type="DateTime" Name="LastActivityDate" Nullable="false" />
+          <NavigationProperty Name="Usuarios" Relationship="PETModel.FK_Usuarios_aspnet_Users" FromRole="aspnet_Users" ToRole="Usuarios" />
+          <NavigationProperty Name="aspnet_Roles" Relationship="PETModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+        </EntityType>
+        <Association Name="FK_Usuarios_aspnet_Users">
+          <End Type="PETModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="PETModel.Usuarios" Role="Usuarios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="Usuarios">
+              <PropertyRef Name="Usuario_UID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="aspnet_UsersInRoles">
+          <End Type="PETModel.aspnet_Roles" Role="aspnet_Roles" Multiplicity="*" />
+          <End Type="PETModel.aspnet_Users" Role="aspnet_Users" Multiplicity="*" />
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PETModelStoreContainer" CdmEntityContainer="PETEntities">
+          <EntitySetMapping Name="Contactos"><EntityTypeMapping TypeName="PETModel.Contactos"><MappingFragment StoreEntitySet="Contactos">
+            <ScalarProperty Name="Contacto_Id" ColumnName="Contacto_Id" />
+            <ScalarProperty Name="MascotaId" ColumnName="MascotaId" />
+            <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+            <ScalarProperty Name="MascotaUsuarioId" ColumnName="MascotaUsuarioId" />
+            <ScalarProperty Name="MensajeContactante" ColumnName="MensajeContactante" />
+            <ScalarProperty Name="MensajeContactado" ColumnName="MensajeContactado" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+            <ScalarProperty Name="FechaContacto" ColumnName="FechaContacto" />
+            <ScalarProperty Name="FechaRespuesta" ColumnName="FechaRespuesta" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Estados"><EntityTypeMapping TypeName="PETModel.Estados"><MappingFragment StoreEntitySet="Estados">
+            <ScalarProperty Name="Estado_Id" ColumnName="Estado_Id" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Mascotas"><EntityTypeMapping TypeName="PETModel.Mascotas"><MappingFragment StoreEntitySet="Mascotas">
+            <ScalarProperty Name="Mascota_Id" ColumnName="Mascota_Id" />
+            <ScalarProperty Name="UsuarioId" ColumnName="UsuarioId" />
+            <ScalarProperty Name="RazaId" ColumnName="RazaId" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+            <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+            <ScalarProperty Name="Edad" ColumnName="Edad" />
+            <ScalarProperty Name="EsMacho" ColumnName="EsMacho" />
+            <ScalarProperty Name="Activo" ColumnName="Activo" />
+            <ScalarProperty Name="Publico" ColumnName="Publico" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Mensajes"><EntityTypeMapping TypeName="PETModel.Mensajes"><MappingFragment StoreEntitySet="Mensajes">
+            <ScalarProperty Name="Mensaje_Id" ColumnName="Mensaje_Id" />
+            <ScalarProperty Name="ContactoId" ColumnName="ContactoId" />
+            <ScalarProperty Name="Mensaje" ColumnName="Mensaje" />
+            <ScalarProperty Name="EmisorContactante" ColumnName="EmisorContactante" />
+            <ScalarProperty Name="Leido" ColumnName="Leido" />
+            <ScalarProperty Name="FechaEnviado" ColumnName="FechaEnviado" />
+            <ScalarProperty Name="FechaLectura" ColumnName="FechaLectura" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Municipios"><EntityTypeMapping TypeName="PETModel.Municipios"><MappingFragment StoreEntitySet="Municipios">
+            <ScalarProperty Name="Municipio_Id" ColumnName="Municipio_Id" />
+            <ScalarProperty Name="EstadoId" ColumnName="EstadoId" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Razas"><EntityTypeMapping TypeName="PETModel.Razas"><MappingFragment StoreEntitySet="Razas">
+            <ScalarProperty Name="Raza_Id" ColumnName="Raza_Id" />
+            <ScalarProperty Name="TipoId" ColumnName="TipoId" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="TiposMascotas"><EntityTypeMapping TypeName="PETModel.TiposMascotas"><MappingFragment StoreEntitySet="TiposMascotas">
+            <ScalarProperty Name="Tipo_Id" ColumnName="Tipo_Id" />
+            <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="Usuarios"><EntityTypeMapping TypeName="PETModel.Usuarios"><MappingFragment StoreEntitySet="Usuarios">
+            <ScalarProperty Name="Usuario_Id" ColumnName="Usuario_Id" />
+            <ScalarProperty Name="Usuario_UID" ColumnName="Usuario_UID" />
+            <ScalarProperty Name="MunicipioId" ColumnName="MunicipioId" />
+            <ScalarProperty Name="Latitud" ColumnName="Latitud" />
+            <ScalarProperty Name="Longitud" ColumnName="Longitud" />
+            <ScalarProperty Name="Status" ColumnName="Status" />
+          </MappingFragment></EntityTypeMapping></EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Roles">
+            <EntityTypeMapping TypeName="PETModel.aspnet_Roles">
+              <MappingFragment StoreEntitySet="aspnet_Roles">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="LoweredRoleName" ColumnName="LoweredRoleName" />
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="aspnet_Users">
+            <EntityTypeMapping TypeName="PETModel.aspnet_Users">
+              <MappingFragment StoreEntitySet="aspnet_Users">
+                <ScalarProperty Name="LastActivityDate" ColumnName="LastActivityDate" />
+                <ScalarProperty Name="IsAnonymous" ColumnName="IsAnonymous" />
+                <ScalarProperty Name="MobileAlias" ColumnName="MobileAlias" />
+                <ScalarProperty Name="LoweredUserName" ColumnName="LoweredUserName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="aspnet_UsersInRoles" TypeName="PETModel.aspnet_UsersInRoles" StoreEntitySet="aspnet_UsersInRoles">
+            <EndProperty Name="aspnet_Users">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="aspnet_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2008/10/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="PETModel">
+        <EntityTypeShape EntityType="PETModel.Contactos" Width="1.5" PointX="7.5" PointY="4.125" Height="3.0714322916666665" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETModel.Estados" Width="1.5" PointX="0.75" PointY="4.875" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETModel.Mascotas" Width="1.5" PointX="10.5" PointY="4.125" Height="3.0714322916666656" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETModel.Mensajes" Width="1.5" PointX="9.75" PointY="8.5" Height="2.2496956380208335" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETModel.Municipios" Width="1.5" PointX="3" PointY="4.75" Height="1.7566536458333317" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETModel.Razas" Width="1.5" PointX="8.25" PointY="0.75" Height="1.7566536458333326" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETModel.TiposMascotas" Width="1.5" PointX="6" PointY="1.75" Height="1.4279589843749996" IsExpanded="true" />
+        <EntityTypeShape EntityType="PETModel.Usuarios" Width="1.5" PointX="5.25" PointY="4.375" Height="2.4140429687499996" IsExpanded="true" />
+        <AssociationConnector Association="PETModel.FK_Contactos_Mascotas" ManuallyRouted="false">
+          <ConnectorPoint PointX="10.5" PointY="5.6607161458333328" />
+          <ConnectorPoint PointX="9" PointY="5.6607161458333328" />
+        </AssociationConnector>
+        <AssociationConnector Association="PETModel.FK_Contactos_Mascotas1" ManuallyRouted="false">
+          <ConnectorPoint PointX="10.5" PointY="4.8303580729166669" />
+          <ConnectorPoint PointX="9" PointY="4.8303580729166669" />
+        </AssociationConnector>
+        <AssociationConnector Association="PETModel.FK_Contactos_Usuarios" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.75" PointY="5.59185581705729" />
+          <ConnectorPoint PointX="7.5" PointY="5.59185581705729" />
+        </AssociationConnector>
+        <AssociationConnector Association="PETModel.FK_Mensajes_Contactos" ManuallyRouted="false">
+          <ConnectorPoint PointX="8.25" PointY="7.1964322916666665" />
+          <ConnectorPoint PointX="8.25" PointY="9.6248478190104159" />
+          <ConnectorPoint PointX="9.75" PointY="9.6248478190104159" />
+        </AssociationConnector>
+        <AssociationConnector Association="PETModel.FK_Municipios_Estados" ManuallyRouted="false">
+          <ConnectorPoint PointX="2.25" PointY="5.5889794921875" />
+          <ConnectorPoint PointX="3" PointY="5.5889794921875" />
+        </AssociationConnector>
+        <AssociationConnector Association="PETModel.FK_Mascotas_Razas" ManuallyRouted="false">
+          <ConnectorPoint PointX="9.75" PointY="1.6283268229166663" />
+          <ConnectorPoint PointX="11.25" PointY="1.6283268229166663" />
+          <ConnectorPoint PointX="11.25" PointY="4.125" />
+        </AssociationConnector>
+        <AssociationConnector Association="PETModel.FK_Mascotas_Usuarios" ManuallyRouted="false">
+          <ConnectorPoint PointX="6.7499999999999991" PointY="6.9533902994791665" />
+          <ConnectorPoint PointX="7.125" PointY="7.3283902994791674" />
+          <ConnectorPoint PointX="7.125" PointY="7.5714322916666656" />
+          <ConnectorPoint PointX="8.1666666666666661" PointY="7.5714322916666648" />
+          <ConnectorPoint PointX="8.3333333333333339" PointY="7.5714322916666656" />
+          <ConnectorPoint PointX="10.125000000000002" PointY="7.5714322916666656" />
+          <ConnectorPoint PointX="10.5" PointY="7.1964322916666656" />
+        </AssociationConnector>
+        <AssociationConnector Association="PETModel.FK_Usuarios_Municipios" ManuallyRouted="false">
+          <ConnectorPoint PointX="4.5" PointY="5.6283268229166659" />
+          <ConnectorPoint PointX="5.25" PointY="5.6283268229166659" />
+        </AssociationConnector>
+        <AssociationConnector Association="PETModel.FK_Razas_TiposMascotas" ManuallyRouted="false">
+          <ConnectorPoint PointX="7.5" PointY="2.1283268229166663" />
+          <ConnectorPoint PointX="8.25" PointY="2.1283268229166663" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="PETModel.aspnet_Roles" Width="1.5" PointX="0.75" PointY="1.25" Height="1.9210009765624996" />
+        <EntityTypeShape EntityType="PETModel.aspnet_Users" Width="1.5" PointX="3" PointY="1" Height="2.4140429687499996" />
+        <AssociationConnector Association="PETModel.FK_Usuarios_aspnet_Users" >
+          <ConnectorPoint PointX="4.5" PointY="1.34375" />
+          <ConnectorPoint PointX="5.59375" PointY="1.34375" />
+          <ConnectorPoint PointX="5.59375" PointY="4.375" />
+        </AssociationConnector>
+        <AssociationConnector Association="PETModel.aspnet_UsersInRoles" >
+          <ConnectorPoint PointX="2.25" PointY="2.21050048828125" />
+          <ConnectorPoint PointX="3" PointY="2.21050048828125" />
+        </AssociationConnector>
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
