@@ -44,10 +44,14 @@ namespace BLL
             //Obtener el GUID 
             Guid userId = (Guid)mu.ProviderUserKey;
             Usuarios u = pe.Usuarios.SingleOrDefault(x => x.Usuario_UID == userId);
-          if (u.Status == "Registrado")
-              throw new Exception("Debes activar tu cuenta desde tu correo electronico");
+            if (u.Status == "Registrado")
+            {
+                FormsAuthentication.SignOut(); throw new Exception("Debes activar tu cuenta desde tu correo electronico");
+            }
             if(u.Status == "Bloqueado")
-                throw new Exception("ElUsuario ha sido desactivado");
+            {
+                FormsAuthentication.SignOut(); throw new Exception("El Usuario ha sido desactivado");
+            }
             return true;
 
         }

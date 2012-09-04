@@ -25,8 +25,9 @@ namespace PET.Account
             }
             catch (Exception ex)
             {
-                FormsAuthentication.SignOut();
-              //Mostrar el error de la exception
+              //Mostrar el error de la exception NO JALA
+                LoginUser.UserNameRequiredErrorMessage = ex.Message;
+                LoginUser.PasswordRequiredErrorMessage = ex.Message;
             }
             
         }
