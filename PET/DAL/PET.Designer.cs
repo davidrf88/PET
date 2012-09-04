@@ -2527,6 +2527,30 @@ namespace DAL
         private global::System.String _Status;
         partial void OnStatusChanging(global::System.String value);
         partial void OnStatusChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String UUID
+        {
+            get
+            {
+                return _UUID;
+            }
+            set
+            {
+                OnUUIDChanging(value);
+                ReportPropertyChanging("UUID");
+                _UUID = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("UUID");
+                OnUUIDChanged();
+            }
+        }
+        private global::System.String _UUID;
+        partial void OnUUIDChanging(global::System.String value);
+        partial void OnUUIDChanged();
 
         #endregion
     

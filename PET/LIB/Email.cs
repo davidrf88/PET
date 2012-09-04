@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Net.Mail;
 using System.Net;
+using System.Configuration;
 
-namespace PET
+namespace LIB
 {
     public class Email
     {
@@ -18,7 +19,7 @@ namespace PET
                 Credentials = new NetworkCredential("socialpetsclub@gmail.com", "petpassword"),
                 EnableSsl = true
            };
-            MailMessage msg = new MailMessage("socialpetsclub@gmail.com", _to, "Confirmación", " Hola <b>"+username+"</b> <br/>Para activar tu cuenta haz click aqui <a href='http://hastacresquelaactivas.com/activarcuenta.aspx?guid= " + guid + "'>ACTIVAR MI CUENTA</a>") { IsBodyHtml= true };
+            MailMessage msg = new MailMessage("socialpetsclub@gmail.com", _to, "Confirmación", " Hola <b>"+username+"</b> <br/>Para activar tu cuenta haz click aqui <a href='"+ConfigurationManager.AppSettings.GetValues("sitio").First()+"/activarcuenta.aspx?guid= " + guid + "'>ACTIVAR MI CUENTA</a>") { IsBodyHtml= true };
             try
             {
                 client.Send(msg);

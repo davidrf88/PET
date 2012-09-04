@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PETModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+    <Schema Namespace="PETModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="PETModelStoreContainer">
           <EntitySet Name="aspnet_Roles" EntityType="PETModel.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="aspnet_Users" EntityType="PETModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
@@ -176,6 +176,7 @@
           <Property Name="Latitud" Type="varchar(max)" />
           <Property Name="Longitud" Type="varchar(max)" />
           <Property Name="Status" Type="varchar(max)" Nullable="false" />
+          <Property Name="UUID" Type="varchar(max)" />
         </EntityType>
         <Association Name="FK__aspnet_Us__RoleI__4AB81AF0">
           <End Role="aspnet_Roles" Type="PETModel.Store.aspnet_Roles" Multiplicity="1" />
@@ -321,8 +322,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="PETModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
@@ -506,6 +506,7 @@
           <NavigationProperty Name="Contactos" Relationship="PETModel.FK_Contactos_Usuarios" FromRole="Usuarios" ToRole="Contactos" />
           <NavigationProperty Name="Mascotas" Relationship="PETModel.FK_Mascotas_Usuarios" FromRole="Usuarios" ToRole="Mascotas" />
           <NavigationProperty Name="Municipios" Relationship="PETModel.FK_Usuarios_Municipios" FromRole="Usuarios" ToRole="Municipios" />
+          <Property Type="String" Name="UUID" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Usuarios_aspnet_Users">
           <End Role="aspnet_Users" Type="PETModel.aspnet_Users" Multiplicity="1" />
@@ -703,7 +704,8 @@
             <ScalarProperty Name="Nombre" ColumnName="Nombre" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Usuarios"><EntityTypeMapping TypeName="PETModel.Usuarios"><MappingFragment StoreEntitySet="Usuarios">
-            <ScalarProperty Name="Usuario_Id" ColumnName="Usuario_Id" />
+            <ScalarProperty Name="UUID" ColumnName="UUID" />
+                <ScalarProperty Name="Usuario_Id" ColumnName="Usuario_Id" />
             <ScalarProperty Name="Usuario_UID" ColumnName="Usuario_UID" />
             <ScalarProperty Name="MunicipioId" ColumnName="MunicipioId" />
             <ScalarProperty Name="Latitud" ColumnName="Latitud" />

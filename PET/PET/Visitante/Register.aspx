@@ -6,7 +6,9 @@
 <asp:Content ID="BodyContent" runat="server" ContentPlaceHolderID="MainContent">
     <asp:CreateUserWizard ID="RegisterUser" runat="server" EnableViewState="false" 
         OnCreatedUser="RegisterUser_CreatedUser" 
-        oncreatinguser="RegisterUser_CreatingUser">
+        oncreatinguser="RegisterUser_CreatingUser" 
+        CompleteSuccessText="Se ha enviado un correo de validacion a tu cuenta." 
+        LoginCreatedUser="False">
         <LayoutTemplate>
             <asp:PlaceHolder ID="wizardStepPlaceholder" runat="server"></asp:PlaceHolder>
             <asp:PlaceHolder ID="navigationPlaceholder" runat="server"></asp:PlaceHolder>

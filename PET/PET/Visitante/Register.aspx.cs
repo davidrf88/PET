@@ -6,11 +6,12 @@ using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Web.Profile;
-
+using BLL;
 namespace PET.Account
 {
     public partial class Register : System.Web.UI.Page
     {
+        BUsuario busuario = new BUsuario();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,6 +20,15 @@ namespace PET.Account
 
         protected void RegisterUser_CreatedUser(object sender, EventArgs e)
         {
+
+           bool exito = busuario.EnviarConfirmacion(RegisterUser.UserName);
+           if (!exito)
+           { 
+           
+           
+           }
+
+
             FormsAuthentication.SetAuthCookie(RegisterUser.UserName, false /* createPersistentCookie */);
 
             string continueUrl = RegisterUser.ContinueDestinationPageUrl;
