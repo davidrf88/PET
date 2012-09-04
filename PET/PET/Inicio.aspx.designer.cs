@@ -11,7 +11,7 @@ namespace PET
 {
 
 
-    public partial class About
+    public partial class Inicio
     {
     }
 }
