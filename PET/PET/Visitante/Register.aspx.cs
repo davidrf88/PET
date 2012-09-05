@@ -21,7 +21,7 @@ namespace PET.Account
         protected void RegisterUser_CreatedUser(object sender, EventArgs e)
         {
 
-           bool exito = busuario.EnviarConfirmacion(RegisterUser.UserName);
+           bool exito = busuario.EnviarConfirmacion(RegisterUser.UserName,1,"","");
            if (!exito)
            { 
            

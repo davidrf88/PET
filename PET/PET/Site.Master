@@ -5,6 +5,13 @@
 <head runat="server">
     <title></title>
     <link href="~/Styles/Site.css" rel="stylesheet" type="text/css" />
+    <style type="text/css">
+        html {
+    /*If you had a black or close to black background*/
+    background-color:rgb(182, 183, 188);
+}
+    </style>
+   
     <asp:ContentPlaceHolder ID="HeadContent" runat="server">
     </asp:ContentPlaceHolder>
 </head>

@@ -57,6 +57,7 @@
     <Content Include="Usuario\ChangePassword.aspx" />
     <Content Include="Usuario\ChangePasswordSuccess.aspx" />
     <Content Include="Visitante\ActivarCuenta.aspx" />
+    <Content Include="Visitante\Busqueda.aspx" />
     <Content Include="Visitante\Login.aspx" />
     <Content Include="Visitante\Register.aspx" />
     <Content Include="Inicio.aspx" />
@@ -96,6 +97,13 @@
     </Compile>
     <Compile Include="Visitante\ActivarCuenta.aspx.designer.cs">
       <DependentUpon>ActivarCuenta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Visitante\Busqueda.aspx.cs">
+      <DependentUpon>Busqueda.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitante\Busqueda.aspx.designer.cs">
+      <DependentUpon>Busqueda.aspx</DependentUpon>
     </Compile>
     <Compile Include="Visitante\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
