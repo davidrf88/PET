@@ -1,0 +1,62 @@
+﻿body, html {
+    height: 100%;
+}
+
+
+body {
+    background-color: #38B0DE;
+    background-image: url("../Images/bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    margin: 0px 0px 0px 0px;
+}
+
+#header, #footer {
+    padding: 8px 0px 8px 0px;
+    display: block;
+}
+
+#header {
+    background-image: url("../Images/mbg.png");
+    color: #fff;
+    font-weight: 600;
+    text-shadow: 1px 1px 1px black;
+}
+
+    #header a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+        #header a:active {
+            color:#808080;
+        }
+
+#main {
+    background-color: #fff;
+    margin: 0 10px 0px 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+#mc {
+    background-color: #fff;
+    position: absolute;
+    background: rgba(0, 0, 10, 0.3);
+    margin: 31px 48px 0px 48px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
