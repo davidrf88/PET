@@ -7,7 +7,7 @@
 * Feb 8th, 11 (v1.11): Fixed bug that caused script to not work in newever versions of jQuery (ie: v1.4.4)
 */
 
-jQuery.noConflict()
+//jQuery.noConflict()
 
 jQuery.imageMagnify = {
     dsettings: {
@@ -15,7 +15,7 @@ jQuery.imageMagnify = {
         duration: 500, //default duration of animation, in millisec
         imgopacity: 0.2 //opacify of original image when enlarged image overlays it
     },
-    cursorcss: 'url(magnify.cur), -moz-zoom-in', //Value for CSS's 'cursor' attribute, added to original image
+    cursorcss: 'url(../Scripts/magnifier.cur), -moz-zoom-in', //Value for CSS's 'cursor' attribute, added to original image
     zIndexcounter: 100,
 
     refreshoffsets: function ($window, $target, warpshell) {
@@ -113,28 +113,28 @@ jQuery.fn.applyMagnifier = function (options) { //dynamic version of imageMagnif
 //    alert();
 
 //});
-jQuery(document).ready(function($){
-//	var $targets=$('.magnify')
-//	$targets.each(function(i){
-//		var $target=$(this)
-//		var options={}
-//		if ($target.attr('data-magnifyto'))
-//			options.magnifyto=parseFloat($target.attr('data-magnifyto'))
-//		if ($target.attr('data-magnifyby'))
-//			options.magnifyby=parseFloat($target.attr('data-magnifyby'))
-//		if ($target.attr('data-magnifyduration'))
-//			options.duration=parseInt($target.attr('data-magnifyduration'))
-//		$target.imageMagnify(options)
-//	})
-//	var $triggers=$('a[rel^="magnify["]')
-//	$triggers.each(function(i){
-//		var $trigger=$(this)
-//		var targetid=$trigger.attr('rel').match(/\[.+\]/)[0].replace(/[\[\]']/g, '') //parse 'id' from rel='magnify[id]'
-//		$trigger.data('magnifyimageid', targetid)
-//		$trigger.click(function(e){
-//			$('#'+$(this).data('magnifyimageid')).trigger('click.magnify')
-//			e.preventDefault()
-//		})
-//	})
-})
+//jQuery(document).ready(function ($) {
+    //	var $targets=$('.magnify')
+    //	$targets.each(function(i){
+    //		var $target=$(this)
+    //		var options={}
+    //		if ($target.attr('data-magnifyto'))
+    //			options.magnifyto=parseFloat($target.attr('data-magnifyto'))
+    //		if ($target.attr('data-magnifyby'))
+    //			options.magnifyby=parseFloat($target.attr('data-magnifyby'))
+    //		if ($target.attr('data-magnifyduration'))
+    //			options.duration=parseInt($target.attr('data-magnifyduration'))
+    //		$target.imageMagnify(options)
+    //	})
+    //	var $triggers=$('a[rel^="magnify["]')
+    //	$triggers.each(function(i){
+    //		var $trigger=$(this)
+    //		var targetid=$trigger.attr('rel').match(/\[.+\]/)[0].replace(/[\[\]']/g, '') //parse 'id' from rel='magnify[id]'
+    //		$trigger.data('magnifyimageid', targetid)
+    //		$trigger.click(function(e){
+    //			$('#'+$(this).data('magnifyimageid')).trigger('click.magnify')
+    //			e.preventDefault()
+    //		})
+    //	})
+//});
 

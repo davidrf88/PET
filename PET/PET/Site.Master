@@ -40,6 +40,7 @@
                     <Items>
                         <asp:MenuItem NavigateUrl="~/Inicio.aspx" Text="Home"/>
                         <asp:MenuItem NavigateUrl="~/Inicio.aspx" Text="About"/>
+                        <asp:MenuItem NavigateUrl="~/Visitante/Busqueda.aspx" Text="About"/>
                     </Items>
                 </asp:Menu>
             </div>

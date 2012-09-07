@@ -60,6 +60,7 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\jquery.magnifier.js" />
     <Content Include="Usuario\ChangePassword.aspx" />
     <Content Include="Usuario\ChangePasswordSuccess.aspx" />
     <Content Include="Visitante\ActivarCuenta.aspx" />
