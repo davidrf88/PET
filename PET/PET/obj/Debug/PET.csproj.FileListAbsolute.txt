@@ -9,3 +9,14 @@ C:\Users\Bolo\Documents\Visual Studio 2010\Projects\PET\bin\LIB.pdb
 C:\Users\Bolo\Documents\Visual Studio 2010\Projects\PET\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Bolo\Documents\Visual Studio 2010\Projects\PET\obj\Debug\PET.dll
 C:\Users\Bolo\Documents\Visual Studio 2010\Projects\PET\obj\Debug\PET.pdb
+C:\Users\Bolo\Desktop\PET\PET\bin\PET.dll
+C:\Users\Bolo\Desktop\PET\PET\bin\PET.pdb
+C:\Users\Bolo\Desktop\PET\PET\bin\BLL.dll
+C:\Users\Bolo\Desktop\PET\PET\bin\DAL.dll
+C:\Users\Bolo\Desktop\PET\PET\bin\LIB.dll
+C:\Users\Bolo\Desktop\PET\PET\bin\BLL.pdb
+C:\Users\Bolo\Desktop\PET\PET\bin\DAL.pdb
+C:\Users\Bolo\Desktop\PET\PET\bin\LIB.pdb
+C:\Users\Bolo\Desktop\PET\PET\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Bolo\Desktop\PET\PET\obj\Debug\PET.dll
+C:\Users\Bolo\Desktop\PET\PET\obj\Debug\PET.pdb
