@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace PET
 {
-    public partial class PET : System.Web.UI.MasterPage
+    public partial class SiteMaster : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {

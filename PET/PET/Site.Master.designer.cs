@@ -10,7 +10,7 @@
 namespace PET {
     
     
-    public partial class PET {
+    public partial class SiteMaster {
         
         /// <summary>
         /// HeadContent control.
@@ -22,13 +22,22 @@ namespace PET {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadContent;
         
         /// <summary>
-        /// Form1 control.
+        /// HeadLoginView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm Form1;
+        protected global::System.Web.UI.WebControls.LoginView HeadLoginView;
+        
+        /// <summary>
+        /// NavigationMenu control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Menu NavigationMenu;
         
         /// <summary>
         /// MainContent control.
