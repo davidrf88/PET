@@ -168,6 +168,10 @@
       <Project>{C0D68899-4BEA-42D2-A342-F2D34389F39C}</Project>
       <Name>BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{546F883A-5812-4FA9-9E0B-12D070022B4B}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="PET.Master" />

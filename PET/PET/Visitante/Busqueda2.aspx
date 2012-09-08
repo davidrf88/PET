@@ -23,7 +23,7 @@
         }
         .tdimagen
         {
-            width: 15%;
+            width: 14%;
             height: 100%;
             vertical-align:middle;
         }
