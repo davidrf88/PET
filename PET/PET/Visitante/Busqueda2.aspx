@@ -1,7 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PET.Master" AutoEventWireup="true"
-    CodeBehind="Busqueda.aspx.cs" Inherits="PET.Visitante.Busqueda" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Busqueda2.aspx.cs" Inherits="PET.Visitante.Busqueda2" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
     <style type="text/css">
         .divcontenedor
         {
@@ -57,10 +59,10 @@
         }
     </style>
     <script src="../Scripts/jquery-1.4.1.js" type="text/javascript"></script>
-      <script src="../Scripts/jquery.magnifier.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.magnifier.js" type="text/javascript"></script>
     <script language="javascript" type="text/jscript">
         $(document).ready(function () {
-       
+
 
 
             $(".tdimagen img").each(function (pos, elm) {
@@ -98,7 +100,7 @@
 
 
 
-       
+
 
 
         function fixImage(elm) {
@@ -125,9 +127,11 @@
         }
 
     </script>
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <br />
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+      <br />
     <div style="width: 100%; padding-left: 40px;">
         <asp:Repeater runat="server" ID="Repeater">
             <ItemTemplate>
@@ -201,4 +205,9 @@
             </table>
         </div>
     </div>
-</asp:Content>
+
+
+    </div>
+    </form>
+</body>
+</html>

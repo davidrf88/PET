@@ -15,7 +15,7 @@ jQuery.imageMagnify = {
         duration: 500, //default duration of animation, in millisec
         imgopacity: 0.2 //opacify of original image when enlarged image overlays it
     },
-    cursorcss: 'url(../Scripts/magnifier.cur), -moz-zoom-in', //Value for CSS's 'cursor' attribute, added to original image
+ //   cursorcss: 'url(magnifier.cur), -moz-zoom-in', //Value for CSS's 'cursor' attribute, added to original image
     zIndexcounter: 100,
 
     refreshoffsets: function ($window, $target, warpshell) {
@@ -106,35 +106,4 @@ jQuery.fn.applyMagnifier = function (options) { //dynamic version of imageMagnif
 
 };
 
-
-//** The following applies the magnify effect to images with class="magnify" and optional "data-magnifyby" and "data-magnifyduration" attrs
-//** It also looks for links with attr rel="magnify[targetimageid]" and makes them togglers for that image
-//$(function () {
-//    alert();
-
-//});
-//jQuery(document).ready(function ($) {
-    //	var $targets=$('.magnify')
-    //	$targets.each(function(i){
-    //		var $target=$(this)
-    //		var options={}
-    //		if ($target.attr('data-magnifyto'))
-    //			options.magnifyto=parseFloat($target.attr('data-magnifyto'))
-    //		if ($target.attr('data-magnifyby'))
-    //			options.magnifyby=parseFloat($target.attr('data-magnifyby'))
-    //		if ($target.attr('data-magnifyduration'))
-    //			options.duration=parseInt($target.attr('data-magnifyduration'))
-    //		$target.imageMagnify(options)
-    //	})
-    //	var $triggers=$('a[rel^="magnify["]')
-    //	$triggers.each(function(i){
-    //		var $trigger=$(this)
-    //		var targetid=$trigger.attr('rel').match(/\[.+\]/)[0].replace(/[\[\]']/g, '') //parse 'id' from rel='magnify[id]'
-    //		$trigger.data('magnifyimageid', targetid)
-    //		$trigger.click(function(e){
-    //			$('#'+$(this).data('magnifyimageid')).trigger('click.magnify')
-    //			e.preventDefault()
-    //		})
-    //	})
-//});
 

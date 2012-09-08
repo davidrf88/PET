@@ -64,11 +64,13 @@
     <Content Include="Images\mbg.png" />
     <Content Include="Inicio.aspx" />
     <Content Include="Scripts\jquery.magnifier.js" />
+    <Content Include="Scripts\magnifier.cur" />
     <Content Include="Styles\PET.css" />
     <Content Include="Usuario\ChangePassword.aspx" />
     <Content Include="Usuario\ChangePasswordSuccess.aspx" />
     <Content Include="Visitante\ActivarCuenta.aspx" />
     <Content Include="Visitante\Busqueda.aspx" />
+    <Content Include="Visitante\Busqueda2.aspx" />
     <Content Include="Visitante\Login.aspx" />
     <Content Include="Visitante\Register.aspx" />
     <Content Include="Global.asax" />
@@ -127,6 +129,13 @@
     </Compile>
     <Compile Include="Visitante\Busqueda.aspx.designer.cs">
       <DependentUpon>Busqueda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Visitante\Busqueda2.aspx.cs">
+      <DependentUpon>Busqueda2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Visitante\Busqueda2.aspx.designer.cs">
+      <DependentUpon>Busqueda2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Visitante\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

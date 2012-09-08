@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <title>PET</title>
-    <link href="~/Styles/PET.css" type="text/css" rel="stylesheet" />
+    <link href="../Styles/PET.css" type="text/css" rel="stylesheet" />
     <asp:ContentPlaceHolder runat="server" ID="HeadContent" />
 </head>
 <body>
@@ -13,6 +13,7 @@
         <a href="">Home</a>
         <a href="">Profile</a>
         <a href="">Settings</a>
+        <a href="../Visitante/Busqueda.aspx">Busqueda</a>
     </div>
     
         <div id="mc">
