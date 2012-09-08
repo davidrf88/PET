@@ -12,7 +12,7 @@
         {
             width: 100%;
             height: 95%;
-            background-color: #D2D5DB;
+            background-color:#B7D0D8;
         }
         .tablaprincipal
         {
@@ -21,8 +21,9 @@
         }
         .tdimagen
         {
-            width: 17%;
+            width: 14%;
             height: 100%;
+            vertical-align: middle;
         }
         .tdimagen img
         {
@@ -39,11 +40,23 @@
         {
             height: 100px;
         }
+        .tdNombreMascota
+        {
+          vertical-align: top;
+          font-size:larger;
+          font-family: 'comic Sans MS'
+         
+            
+            }
         .Divtextos table
         {
             width: 100%;
             height: 100%;
         }
+        #ListaMascotas
+        {
+            display:none;
+            }
         .Corner
         {
             -moz-border-radius-bottomright: 20px;
@@ -59,6 +72,14 @@
     <script src="../Scripts/jquery-1.4.1.js" type="text/javascript"></script>
     <script src="../Scripts/jquery.magnifier.js" type="text/javascript"></script>
     <script language="javascript" type="text/jscript">
+
+
+        function pageLoad(sender, args) {
+            setTimeout('Mangify();', 200);
+
+
+        }
+
         $(document).ready(function () {
 
 
@@ -69,28 +90,7 @@
             });
 
 
-            var $targets = $('.magnify')
-            $targets.each(function (i) {
-                var $target = $(this)
-                var options = {}
-                if ($target.attr('data-magnifyto'))
-                    options.magnifyto = parseFloat($target.attr('data-magnifyto'))
-                if ($target.attr('data-magnifyby'))
-                    options.magnifyby = parseFloat($target.attr('data-magnifyby'))
-                if ($target.attr('data-magnifyduration'))
-                    options.duration = parseInt($target.attr('data-magnifyduration'))
-                $target.imageMagnify(options)
-            })
-            var $triggers = $('a[rel^="magnify["]')
-            $triggers.each(function (i) {
-                var $trigger = $(this)
-                var targetid = $trigger.attr('rel').match(/\[.+\]/)[0].replace(/[\[\]']/g, '') //parse 'id' from rel='magnify[id]'
-                $trigger.data('magnifyimageid', targetid)
-                $trigger.click(function (e) {
-                    $('#' + $(this).data('magnifyimageid')).trigger('click.magnify')
-                    e.preventDefault()
-                })
-            })
+
 
 
 
@@ -124,83 +124,89 @@
             }
         }
 
+        function Mangify() {
+            var $targets = $('.magnify')
+            $targets.each(function (i) {
+                var $target = $(this)
+                var options = {}
+                if ($target.attr('data-magnifyto'))
+                    options.magnifyto = parseFloat($target.attr('data-magnifyto'))
+                if ($target.attr('data-magnifyby'))
+                    options.magnifyby = parseFloat($target.attr('data-magnifyby'))
+                if ($target.attr('data-magnifyduration'))
+                    options.duration = parseInt($target.attr('data-magnifyduration'))
+                $target.imageMagnify(options)
+            })
+            var $triggers = $('a[rel^="magnify["]')
+            $triggers.each(function (i) {
+                var $trigger = $(this)
+                var targetid = $trigger.attr('rel').match(/\[.+\]/)[0].replace(/[\[\]']/g, '') //parse 'id' from rel='magnify[id]'
+                $trigger.data('magnifyimageid', targetid)
+                $trigger.click(function (e) {
+                    $('#' + $(this).data('magnifyimageid')).trigger('click.magnify')
+                    e.preventDefault()
+                })
+            })
+
+        }
+
+        function showLista() {
+
+            $('#ListaMascotas').show('slow');
+        }
+             
+
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <br />
-    <div style="width: 100%; padding-left: 40px;">
-        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-        <asp:Repeater runat="server" ID="Repeater">
-            <ItemTemplate>
-                <div class="divcontenedor">
-                    <div class="divcolor Corner">
-                        <table class="tablaprincipal">
-                            <tr>
-                                <td class="tdimagen" align="center">
-                                    <img alt="" src="../img/dog3.jpg" style='width: 80px; height: 80px;' class="magnify" />
-                                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                                </td>
-                                <td align="center" valign="middle">
-                                    <div class="Divtextos">
-                                        <table style="width: 100%; height: 100%;">
-                                            <tr>
-                                                <td>
-                                                    &nbsp;
-                                                </td>
-                                                <td>
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>
-                                                    &nbsp;
-                                                </td>
-                                                <td>
-                                                    &nbsp;
-                                                </td>
-                                            </tr>
-                                        </table>
-                                    </div>
-                                </td>
-                            </tr>
-                        </table>
-                    </div>
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>
-    </div>
-    <br />
-    <div class="divcontenedor">
-        <div class="divcolor">
-            <table class="tablaprincipal">
-                <tr>
-                    <td class="tdimagen" align="center">
-                        <img alt="" src="../img/dog2.jpg" width="80px" height="80px" class="magnify" />
-                    </td>
-                    <td align="center" valign="middle">
-                        <div class="Divtextos">
-                            <table border="1px" style="width: 100%; height: 100%;">
+  <asp:ScriptManager ID="ScriptManager1" runat="server"/>
+    <div>
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+      <ContentTemplate>
+        <div id="ListaMascotas" style="width: 100%; padding-left: 40px;">
+            <asp:Repeater runat="server" ID="Repeater">
+                <ItemTemplate>
+                    <div class="divcontenedor">
+                        <div class="divcolor Corner">
+                            <table class="tablaprincipal">
                                 <tr>
-                                    <td>
-                                        &nbsp;
+                                    <td class="tdimagen" align="center">
+                                        <img alt="" src="../Images/dog<%# Eval("Mascota_Id") %>.jpg" style='width: 80px; height: 80px;'
+                                            class="magnify" />
                                     </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td>
-                                        &nbsp;
+                                    <td align="center" valign="middle">
+                                        <div class="Divtextos">
+                                            <table style="width: 100%; height: 100%;">
+                                                <tr>
+                                                    <td class="tdNombreMascota" align="left">
+                                                        <%# Eval("Nombre") %>
+                                                    </td>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                    <td>
+                                                        &nbsp;
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </td>
                                 </tr>
                             </table>
                         </div>
-                    </td>
-                </tr>
-            </table>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
         </div>
+        </ContentTemplate>
+          </asp:UpdatePanel>
+        <br />
+
     </div>
 </asp:Content>
