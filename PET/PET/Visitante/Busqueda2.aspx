@@ -131,8 +131,7 @@
 <body>
     <form id="form1" runat="server">
     <div>
-      <br />
-    <div style="width: 100%; padding-left: 40px;">
+      <div style="width: 100%; padding-left: 40px;">
         <asp:Repeater runat="server" ID="Repeater">
             <ItemTemplate>
                 <div class="divcontenedor">
@@ -140,7 +139,7 @@
                         <table class="tablaprincipal">
                             <tr>
                                 <td class="tdimagen" align="center">
-                                    <img alt="" src="../img/dog3.jpg" style=' width:80px; height:80px;' class="magnify" />
+                                    <img alt="" src="../img/dog3.jpg" style='width: 80px; height: 80px;' class="magnify" />
                                 </td>
                                 <td align="center" valign="middle">
                                     <div class="Divtextos">
@@ -205,7 +204,6 @@
             </table>
         </div>
     </div>
-
 
     </div>
     </form>

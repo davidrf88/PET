@@ -57,10 +57,10 @@
         }
     </style>
     <script src="../Scripts/jquery-1.4.1.js" type="text/javascript"></script>
-      <script src="../Scripts/jquery.magnifier.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.magnifier.js" type="text/javascript"></script>
     <script language="javascript" type="text/jscript">
         $(document).ready(function () {
-       
+
 
 
             $(".tdimagen img").each(function (pos, elm) {
@@ -98,7 +98,7 @@
 
 
 
-       
+
 
 
         function fixImage(elm) {
@@ -136,7 +136,7 @@
                         <table class="tablaprincipal">
                             <tr>
                                 <td class="tdimagen" align="center">
-                                    <img alt="" src="../img/dog3.jpg" style=' width:80px; height:80px;' class="magnify" />
+                                    <img alt="" src="../img/dog3.jpg" style='width: 80px; height: 80px;' class="magnify" />
                                 </td>
                                 <td align="center" valign="middle">
                                     <div class="Divtextos">
