@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PET.Master" AutoEventWireup="true"
     CodeBehind="Busqueda.aspx.cs" Inherits="PET.Visitante.Busqueda" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
