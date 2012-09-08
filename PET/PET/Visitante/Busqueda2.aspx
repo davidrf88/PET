@@ -23,8 +23,9 @@
         }
         .tdimagen
         {
-            width: 17%;
+            width: 15%;
             height: 100%;
+            vertical-align:middle;
         }
         .tdimagen img
         {
@@ -139,7 +140,7 @@
                         <table class="tablaprincipal">
                             <tr>
                                 <td class="tdimagen" align="center">
-                                    <img alt="" src="../img/dog3.jpg" style='width: 80px; height: 80px;' class="magnify" />
+                                    <img alt="" src="../Images/<%# Container.DataItem %>" style='width: 80px; height: 80px;' class="magnify" />
                                 </td>
                                 <td align="center" valign="middle">
                                     <div class="Divtextos">
@@ -171,39 +172,6 @@
         </asp:Repeater>
     </div>
     <br />
-    <div class="divcontenedor">
-        <div class="divcolor">
-            <table class="tablaprincipal">
-                <tr>
-                    <td class="tdimagen" align="center">
-                        <img alt="" src="../img/dog2.jpg" width="80px" height="80px" class="magnify" />
-                    </td>
-                    <td align="center" valign="middle">
-                        <div class="Divtextos">
-                            <table border="1px" style="width: 100%; height: 100%;">
-                                <tr>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                    <td>
-                                        &nbsp;
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
 
     </div>
     </form>

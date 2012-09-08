@@ -11,7 +11,7 @@ namespace PET.Visitante
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            List<string> strl = new List<string>() { "unaaa", "asa", "aasa", "asasa" };
+            List<string> strl = new List<string>() { "dog.jpg", "dog2.jpg", "dog3.jpg", "dog.jpg" };
             Repeater.DataSource = strl;
             Repeater.DataBind();
         }

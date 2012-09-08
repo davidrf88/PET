@@ -129,6 +129,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <br />
     <div style="width: 100%; padding-left: 40px;">
+        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
         <asp:Repeater runat="server" ID="Repeater">
             <ItemTemplate>
                 <div class="divcontenedor">
@@ -137,6 +138,7 @@
                             <tr>
                                 <td class="tdimagen" align="center">
                                     <img alt="" src="../img/dog3.jpg" style='width: 80px; height: 80px;' class="magnify" />
+                                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
                                 </td>
                                 <td align="center" valign="middle">
                                     <div class="Divtextos">
