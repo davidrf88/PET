@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Images\bg.jpg" />
-    <Content Include="Images\dog.jpg" />
+    <Content Include="Images\dog1.jpg" />
     <Content Include="Images\dog2.jpg" />
     <Content Include="Images\dog3.jpg" />
     <Content Include="Images\mbg.png" />
