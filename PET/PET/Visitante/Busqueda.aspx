@@ -48,6 +48,13 @@
          
             
             }
+.tdNombreMascota img
+        {
+         height:25px;
+         width:auto;
+         
+          }
+            
         .Divtextos table
         {
             width: 100%;
@@ -181,6 +188,12 @@
                                                 <tr>
                                                     <td class="tdNombreMascota" align="left">
                                                         <%# Eval("Nombre") %>
+                                                         <br />
+                                                        <img src="../Images/<%# (Boolean.Parse(Eval("EsMacho").ToString()))? "Male": "Female" %>.png" alt="Genero" />
+                                                        <br />
+                                                        <%#ObtenerEdad(Eval("Edad").ToString())
+                                                                  %>
+
                                                     </td>
                                                     <td>
                                                         &nbsp;

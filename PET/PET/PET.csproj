@@ -64,6 +64,8 @@
     <Content Include="Images\dog1.jpg" />
     <Content Include="Images\dog2.jpg" />
     <Content Include="Images\dog3.jpg" />
+    <Content Include="Images\Female.png" />
+    <Content Include="Images\male.png" />
     <Content Include="Images\mbg.png" />
     <Content Include="Inicio.aspx" />
     <Content Include="Scripts\jquery.magnifier.js" />

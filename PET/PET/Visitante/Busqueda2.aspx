@@ -70,6 +70,11 @@
             -moz-border-radius-topleft: 20px;
             border-top-left-radius: 20px;
         }
+        .style1
+        {
+            width: 50px;
+            height: 74px;
+        }
     </style>
     <script src="../Scripts/jquery-1.4.1.js" type="text/javascript"></script>
     <script src="../Scripts/jquery.magnifier.js" type="text/javascript"></script>
@@ -223,7 +228,9 @@
                                                 <tr>
                                                     <td class="tdNombreMascota" align="left">
                                                        PERRO PRUEBAS
-                                                    </td>
+                                                        <br />
+                                                        <img class="style1" src="../Images/Female.png" style=" width:auto; height:25px;" /><br />
+                                                        tt</td>
                                                     <td>
                                                         &nbsp;
                                                     </td>
