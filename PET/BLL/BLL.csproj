@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BResultados.cs" />
     <Compile Include="BUsuario.cs" />
     <Compile Include="BMascota.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
