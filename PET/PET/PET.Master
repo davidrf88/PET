@@ -14,6 +14,7 @@
         <a href="">Profile</a>
         <a href="">Settings</a>
         <a href="../Visitante/Busqueda.aspx">Busqueda</a>
+        <a href="../Visitante/Busqueda2.aspx">Busqueda2</a>
     </div>
     
         <div id="mc">

@@ -62,8 +62,25 @@
   <ItemGroup>
     <Content Include="Images\bg.jpg" />
     <Content Include="Images\dog1.jpg" />
+    <Content Include="Images\dog10.jpg" />
+    <Content Include="Images\dog11.jpg" />
+    <Content Include="Images\dog12.jpg" />
+    <Content Include="Images\dog13.jpg" />
+    <Content Include="Images\dog14.jpg" />
+    <Content Include="Images\dog15.jpg" />
+    <Content Include="Images\dog16.jpg" />
+    <Content Include="Images\dog17.jpg" />
+    <Content Include="Images\dog18.jpg" />
+    <Content Include="Images\dog19.jpg" />
     <Content Include="Images\dog2.jpg" />
+    <Content Include="Images\dog20.jpg" />
     <Content Include="Images\dog3.jpg" />
+    <Content Include="Images\dog4.jpg" />
+    <Content Include="Images\dog5.jpg" />
+    <Content Include="Images\dog6.jpg" />
+    <Content Include="Images\dog7.jpg" />
+    <Content Include="Images\dog8.jpg" />
+    <Content Include="Images\dog9.jpg" />
     <Content Include="Images\Female.png" />
     <Content Include="Images\male.png" />
     <Content Include="Images\mbg.png" />

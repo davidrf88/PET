@@ -70,12 +70,7 @@
             -moz-border-radius-topleft: 20px;
             border-top-left-radius: 20px;
         }
-        .style1
-        {
-            width: 50px;
-            height: 74px;
-        }
-    </style>
+        </style>
     <script src="../Scripts/jquery-1.4.1.js" type="text/javascript"></script>
     <script src="../Scripts/jquery.magnifier.js" type="text/javascript"></script>
     <script language="javascript" type="text/jscript">
@@ -168,6 +163,21 @@
     <div>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
       <ContentTemplate>
+         <asp:Button ID="Button1" runat="server" onclick="Button1_Click" Text="Cargar" />
+          &nbsp; Pagina&nbsp;
+        <asp:DropDownList ID="DropDownList1" runat="server" AppendDataBoundItems="True">
+        </asp:DropDownList>
+          &nbsp;&nbsp;&nbsp;&nbsp; RegistrosxPagina&nbsp;&nbsp;&nbsp;
+          <asp:DropDownList ID="DropDownList2" runat="server">
+              <asp:ListItem Value="2"></asp:ListItem>
+              <asp:ListItem Value="5"></asp:ListItem>
+              <asp:ListItem Value="10"></asp:ListItem>
+              <asp:ListItem Value="50"></asp:ListItem>
+          </asp:DropDownList>
+          &nbsp;&nbsp;
+          <asp:Label ID="Label1" runat="server" Text="Total de Registros :"></asp:Label>
+          <br />
+
         <div id="ListaMascotas" style="width: 100%; padding-left: 40px;">
             <asp:Repeater runat="server" ID="Repeater">
                 <ItemTemplate>
@@ -208,50 +218,18 @@
                 </ItemTemplate>
             </asp:Repeater>
         </div>
+       
         </ContentTemplate>
             <Triggers>
                 <asp:AsyncPostBackTrigger ControlID="Button1" EventName="Click" />
             </Triggers>
           </asp:UpdatePanel>
         <br />
-         <div class="divcontenedor">
-                        <div class="divcolor Corner">
-                            <table class="tablaprincipal">
-                                <tr>
-                                    <td class="tdimagen" align="center">
-                                        <img alt="" src="../Images/dog.jpg" style='width: 80px; height: 80px;'
-                                            class="magnify" />
-                                    </td>
-                                    <td align="center" valign="middle">
-                                        <div class="Divtextos">
-                                            <table style="width: 100%; height: 100%;">
-                                                <tr>
-                                                    <td class="tdNombreMascota" align="left">
-                                                       PERRO PRUEBAS
-                                                        <br />
-                                                        <img class="style1" src="../Images/Female.png" style=" width:auto; height:25px;" /><br />
-                                                        tt</td>
-                                                    <td>
-                                                        &nbsp;
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        &nbsp;
-                                                    </td>
-                                                    <td>
-                                                        &nbsp;
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-        <asp:Button ID="Button1" runat="server" Text="Cargar" onclick="Button1_Click" />
 
+        
+&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        
     </div>
     </form>
 </body>

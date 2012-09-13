@@ -8,7 +8,7 @@ using System.Reflection;
 
 namespace BLL
 {
-    class BResultados
+   public class BResultados
     {
         PETEntities pe = new PETEntities();
 
@@ -45,14 +45,14 @@ namespace BLL
                 }
             
             }
-
-            resultados.paginas = (Int32)Math.Ceiling((decimal)(resultados.TotalRegistros / registrosPorPagina));
+            double div = ((double)(resultados.TotalRegistros) / (double)(registrosPorPagina));
+            resultados.paginas = (Int32)Math.Ceiling(div);
             if (Pagina > resultados.paginas)
             {
                 Pagina = 1;
             }
 
-            int saltar = Pagina * registrosPorPagina;
+            int saltar = (Pagina -1) * registrosPorPagina;
             int tomar = (Pagina < resultados.paginas) ? registrosPorPagina : resultados.TotalRegistros - (registrosPorPagina * (Pagina - 1));
             mascotas = mascotas.Skip(saltar).Take(tomar).ToList();
             resultados.Registros = mascotas;
