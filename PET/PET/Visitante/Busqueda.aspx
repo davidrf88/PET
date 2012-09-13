@@ -140,6 +140,31 @@
         <br />
         <asp:DropDownList ID="ddlRaza" runat="server" class="d1">
         </asp:DropDownList>
+        <br />
+        Pagina
+        <br />
+        <asp:DropDownList ID="ddlPagina" runat="server" class="d1">
+        </asp:DropDownList>
+        <br />
+        RegxPagina
+        <br />
+        <asp:DropDownList ID="ddlRegistrosxPagina" runat="server" class="d1" 
+            AppendDataBoundItems="True">
+            <asp:ListItem Value="1"></asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>5</asp:ListItem>
+            <asp:ListItem>10</asp:ListItem>
+            <asp:ListItem>15</asp:ListItem>
+            <asp:ListItem>50</asp:ListItem>
+        </asp:DropDownList>
+        <br />
+        Cargar
+        <br />
+        <asp:Button ID="BCargar" runat="server" Text="Button" onclick="BCargar_Click" />
+        <br />
+        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+        <br />
+
     </div>
     <hr class="separador" />
     <asp:ScriptManager ID="ScriptManager1" runat="server" />
@@ -162,6 +187,9 @@
                                     class="gender" alt="Genero" />
                                 <br />
                                 <%#ObtenerEdad(Eval("Edad").ToString())
+                                %>
+                                <br />
+                                <%# Eval("Descripcion").ToString()
                                 %>
                             </div>
                         </div>

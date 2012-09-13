@@ -56,6 +56,7 @@ namespace BLL
             int tomar = (Pagina < resultados.paginas) ? registrosPorPagina : resultados.TotalRegistros - (registrosPorPagina * (Pagina - 1));
             mascotas = mascotas.Skip(saltar).Take(tomar).ToList();
             resultados.Registros = mascotas;
+            resultados.RegistrosAMostrar = mascotas.Count();
             return resultados;
 
          
