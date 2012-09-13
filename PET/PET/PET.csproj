@@ -67,6 +67,7 @@
     <Content Include="Images\Female.png" />
     <Content Include="Images\male.png" />
     <Content Include="Images\mbg.png" />
+    <Content Include="Images\petbg.jpg" />
     <Content Include="Inicio.aspx" />
     <Content Include="Scripts\jquery.magnifier.js" />
     <Content Include="Scripts\magnifier.cur" />

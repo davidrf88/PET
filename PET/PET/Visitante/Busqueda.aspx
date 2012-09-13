@@ -3,77 +3,61 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
-        .divcontenedor
+        .d1
         {
-            width: 80%;
-            height: 100px;
-        }
-        .divcolor
+            width: 150px;
+        }                        
+        
+        .petdiv
         {
-            width: 100%;
-            height: 95%;
-            background-color:#B7D0D8;
-        }
-        .tablaprincipal
-        {
-            width: 100%;
-            height: 100%;
-        }
-        .tdimagen
-        {
-            width: 14%;
-            height: 100%;
-            vertical-align: middle;
-        }
-        .tdimagen img
-        {
-            width: 95%;
-            height: 85%;
-            vertical-align: middle;
+            width: 49%;
+            margin: 0px 4px 0px 4px;
+            background-image: url("../Images/petbg.jpg");
+            border-radius: 5px;
+            min-height: 120px;
+            float: left;
+            font-weight: 600;
+            text-shadow: 1px 1px 1px Gray;
         }
         
-        .tdtabla table
+        .imgdiv
+        {
+            float: left;
+            width: 20%;
+        }
+        
+        .desdiv
+        {
+            width: 80%;
+            float: left;
+        }
+        
+        .gender
+        {
+            width: 18px;
+            height: 22px;
+        }
+        
+        .leftpanel
         {
             height: 100%;
+            width: 18%;
+            float: left;
+            padding-left: 2%;
         }
-        .Divtextos
+        
+        .separador
         {
-            height: 100px;
+            width: 1px;
+            float: left;
+            height: 98%;
         }
-        .tdNombreMascota
+        
+        .rightpanel
         {
-          vertical-align: top;
-          font-size:larger;
-          font-family: 'comic Sans MS'
-         
-            
-            }
-.tdNombreMascota img
-        {
-         height:25px;
-         width:auto;
-         
-          }
-            
-        .Divtextos table
-        {
-            width: 100%;
             height: 100%;
-        }
-        #ListaMascotas
-        {
-            display:none;
-            }
-        .Corner
-        {
-            -moz-border-radius-bottomright: 20px;
-            border-bottom-right-radius: 20px;
-            -moz-border-radius-bottomleft: 20px;
-            border-bottom-left-radius: 20px;
-            -moz-border-radius-topright: 20px;
-            border-top-right-radius: 20px;
-            -moz-border-radius-topleft: 20px;
-            border-top-left-radius: 20px;
+            width: 79%;
+            float: right;
         }
     </style>
     <script src="../Scripts/jquery-1.4.1.js" type="text/javascript"></script>
@@ -83,30 +67,13 @@
 
         function pageLoad(sender, args) {
             setTimeout('Mangify();', 200);
-
-
         }
 
         $(document).ready(function () {
-
-
-
-            $(".tdimagen img").each(function (pos, elm) {
-
+            $(".imgdiv img").each(function (pos, elm) {
                 fixImage(elm);
             });
-
-
-
-
-
-
         });
-
-
-
-
-
 
         function fixImage(elm) {
             elm = $(elm);
@@ -124,10 +91,8 @@
                 elm.css('height', 'auto');
             }
             else {
-
                 elm.css('height', allowedHeight + 'px');
                 elm.css('width', 'auto');
-
             }
         }
 
@@ -154,11 +119,9 @@
                     e.preventDefault()
                 })
             })
-
         }
 
         function showLista() {
-
             $('#ListaMascotas').show('slow');
         }
              
@@ -166,60 +129,46 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <br />
-  <asp:ScriptManager ID="ScriptManager1" runat="server"/>
-    <div>
-        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-      <ContentTemplate>
-        <div id="ListaMascotas" style="width: 100%; padding-left: 40px;">
-            <asp:Repeater runat="server" ID="Repeater">
-                <ItemTemplate>
-                    <div class="divcontenedor">
-                        <div class="divcolor Corner">
-                            <table class="tablaprincipal">
-                                <tr>
-                                    <td class="tdimagen" align="center">
-                                        <img alt="" src="../Images/dog<%# Eval("Mascota_Id") %>.jpg" style='width: 80px; height: 80px;'
-                                            class="magnify" />
-                                    </td>
-                                    <td align="center" valign="middle">
-                                        <div class="Divtextos">
-                                            <table style="width: 100%; height: 100%;">
-                                                <tr>
-                                                    <td class="tdNombreMascota" align="left">
-                                                        <%# Eval("Nombre") %>
-                                                         <br />
-                                                        <img src="../Images/<%# (Boolean.Parse(Eval("EsMacho").ToString()))? "Male": "Female" %>.png" alt="Genero" />
-                                                        <br />
-                                                        <%#ObtenerEdad(Eval("Edad").ToString())
-                                                                  %>
-
-                                                    </td>
-                                                    <td>
-                                                        &nbsp;
-                                                    </td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        &nbsp;
-                                                    </td>
-                                                    <td>
-                                                        &nbsp;
-                                                    </td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </ItemTemplate>
-            </asp:Repeater>
-        </div>
-        </ContentTemplate>
-          </asp:UpdatePanel>
+    <div class="leftpanel">
         <br />
-
+        Mascota:
+        <br />
+        <asp:DropDownList ID="ddlMascota" runat="server" class="d1">
+        </asp:DropDownList>
+        <br />
+        Raza:
+        <br />
+        <asp:DropDownList ID="ddlRaza" runat="server" class="d1">
+        </asp:DropDownList>
+    </div>
+    <hr class="separador" />
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+    <div class="rightpanel">
+        <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+            <ContentTemplate>
+                <asp:Repeater runat="server" ID="Repeater">
+                    <ItemTemplate>
+                        <%# ((Container.ItemIndex % 2) == 0) ? "&nbsp;&nbsp;&nbsp;&nbsp;<br/>" : ""%>
+                        <div class="petdiv">
+                            <div align="left">
+                                <%# Eval("Nombre") %>
+                            </div>
+                            <hr />
+                            <div class="imgdiv">
+                                <img alt="" src="../Images/dog<%# Eval("Mascota_Id") %>.jpg" class="magnify" />
+                            </div>
+                            <div class="desdiv">
+                                <img src="../Images/<%# (Boolean.Parse(Eval("EsMacho").ToString()))? "Male": "Female" %>.png"
+                                    class="gender" alt="Genero" />
+                                <br />
+                                <%#ObtenerEdad(Eval("Edad").ToString())
+                                %>
+                            </div>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </ContentTemplate>
+        </asp:UpdatePanel>
+        <br />
     </div>
 </asp:Content>
