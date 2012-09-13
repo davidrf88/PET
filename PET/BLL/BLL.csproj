@@ -48,7 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BRazas.cs" />
     <Compile Include="BResultados.cs" />
+    <Compile Include="BTiposMascotas.cs" />
     <Compile Include="BUsuario.cs" />
     <Compile Include="BMascota.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
