@@ -60,7 +60,7 @@
     <Reference Include="System.Web.ApplicationServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\bg.jpg" />
+    <Content Include="Images\UI\bg.jpg" />
     <Content Include="Images\dog1.jpg" />
     <Content Include="Images\dog10.jpg" />
     <Content Include="Images\dog11.jpg" />
@@ -81,13 +81,13 @@
     <Content Include="Images\dog7.jpg" />
     <Content Include="Images\dog8.jpg" />
     <Content Include="Images\dog9.jpg" />
-    <Content Include="Images\Female.png" />
-    <Content Include="Images\male.png" />
-    <Content Include="Images\mbg.png" />
-    <Content Include="Images\petbg.jpg" />
+    <Content Include="Images\UI\Female.png" />
+    <Content Include="Images\UI\male.png" />
+    <Content Include="Images\UI\menubg.png" />
     <Content Include="Inicio.aspx" />
     <Content Include="Scripts\jquery.magnifier.js" />
     <Content Include="Scripts\magnifier.cur" />
+    <Content Include="Styles\Busqueda.css" />
     <Content Include="Styles\PET.css" />
     <Content Include="Usuario\ChangePassword.aspx" />
     <Content Include="Usuario\ChangePasswordSuccess.aspx" />

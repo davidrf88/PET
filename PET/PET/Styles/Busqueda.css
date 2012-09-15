@@ -1,0 +1,58 @@
+﻿.d1
+{
+    width: 150px;
+}
+
+.toppanel
+{
+    width: 100%;
+    clear: both;
+}
+
+.respanel
+{
+    width: 100%;
+}
+
+.petdiv
+{
+    width: 49%;
+    margin: 0px 4px 0px 4px;
+    background-color: #5C7AA4;
+    background: -webkit-gradient(linear,0% 0,0% 100%,from(#6281AE),to(#4F6B92));
+    border: 1px solid #496183;
+    border-radius: 2px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: 0 4px 4px -4px rgba(0,0,0,0.7);
+    -webkit-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.7);
+    color: white;
+    min-height: 120px;
+    float: left;
+}
+
+.imgdiv
+{
+    float: left;
+    width: 20%;
+}
+
+.desdiv
+{
+    width: 80%;
+    float: left;
+}
+
+.gender
+{
+    width: 18px;
+    height: 22px;
+}
+
+.separador
+{
+    width: 1px;
+    float: left;
+    height: 98%;
+}

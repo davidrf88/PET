@@ -9,21 +9,18 @@
 </head>
 <body>
     <form id="Form1" runat="server">
+    <asp:ScriptManager ID="ScriptManager" runat="server" />
     <div id="header">
-        <a href="">Home</a>
-        <a href="">Profile</a>
-        <a href="">Settings</a>
-        <a href="../Visitante/Busqueda.aspx">Busqueda</a>
-        <a href="../Visitante/Busqueda2.aspx">Busqueda2</a>
+        <a href="">Home</a> <a href="">Profile</a> <a href="">Settings</a> <a href="../Visitante/Busqueda.aspx">
+            Busqueda</a> <a href="../Visitante/Busqueda2.aspx">Busqueda2</a>
     </div>
-    
-        <div id="mc">
-            &nbsp;
-             <div id="main">
-                 <asp:ContentPlaceHolder runat="server" ID="MainContent" />
-             </div>
-            &nbsp;
-        </div>    
+    <div id="mc">
+        &nbsp;
+        <div id="main">
+            <asp:ContentPlaceHolder runat="server" ID="MainContent" />
+        </div>
+        &nbsp;
+    </div>
     <footer>
     </footer>
     </form>
