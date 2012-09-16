@@ -20,6 +20,7 @@ namespace BLL
             resultados.Pagina = 1;
             
             var MUNICIPIO = pe.Municipios.SingleOrDefault(x => x.Nombre.ToLower() == municipio.ToLower());
+           
             var RAZA = pe.Razas.SingleOrDefault(x => x.Nombre.ToLower() == raza.ToLower());
             if (RAZA == null || MUNICIPIO == null)
             { return resultados; }
