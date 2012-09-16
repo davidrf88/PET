@@ -27,7 +27,7 @@ body
 #header
 {
     -webkit-box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.5);
-    background-image:url("../Images/UI/menubg.png");
+    background-image: -webkit-linear-gradient(top, #3B3938 0%, #575A5C 100%);
     border-bottom-color: black;
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -46,13 +46,19 @@ body
 {
     text-decoration: none;
     color: #fff;
+   
+}
+
+#header a span
+{
+     width: 500px;
 }
 
 #main
 {
     overflow: auto;
     background-color: #fff;
-    margin: 0 10px 0px 10px;
+    margin: 0px 10px 0px 10px;
     position: absolute;
     left: 0;
     right: 0;
