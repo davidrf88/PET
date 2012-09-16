@@ -6,6 +6,7 @@ using System.Web.Security;
 using System.Data;
 using DAL;
 using LIB;
+using System.Text.RegularExpressions;
 
 
 namespace BLL
@@ -29,8 +30,9 @@ namespace BLL
                 pe.SaveChanges();
                 Email email = new Email();
                 //Enviar el mail de activación
-                bool enviado = email.SendEmail(mu.Email, mu.UserName, u.UUID);
-                return enviado;
+           //     bool enviado = email.SendEmail(mu.Email, mu.UserName, u.UUID);
+           //     return enviado;
+                return true;
             }
             catch (Exception e)
             {
@@ -93,6 +95,56 @@ namespace BLL
 
             return true;
         
+        
+        }
+
+        public bool CrearUsuario(string usuario,string correo,string password,bool soloValidar)
+        {
+            char[] caracteresValidos = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-', '_', '@','!','#','$','%','&','*','(',')' };
+
+
+            //Validar nombre de username
+                var us = pe.Usuarios.Where(x => x.aspnet_Users.LoweredUserName == usuario.ToLower());
+                if (us.Count() > 0)
+                { throw new Exception("MENSAJEERROREl nombre de usuario ya existe!"); }
+            //Validar Longitud username
+                if (usuario.Trim().Length < 6)
+                { throw new Exception("MENSAJEERRORIntenta un nombre de usuario mas grande!"); }
+            //Validar Caracteres  username
+                foreach (char c in usuario.Trim().ToLower())
+                { if (caracteresValidos.Contains(c)) continue;
+                else throw new Exception("MENSAJEERRORTu usuario contiene caracteres no permitidos!");
+                }
+
+
+                //Validar Longitud password
+                if (password.Trim().Length < 6)
+                { throw new Exception("MENSAJEERRORIntenta un password mas grande!"); }
+                //Validar Caracteres password
+                foreach (char c in password.Trim())
+                {
+                    if (caracteresValidos.Contains(c)) continue;
+                    else throw new Exception("MENSAJEERRORTu password contiene caracteres no permitidos!");
+                }
+
+                string strRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
+            @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
+            @".)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+                Regex re = new Regex(strRegex);
+                if (!re.IsMatch(correo))
+                {
+                    throw new Exception("MENSAJEERRORIngresa un correo valido!");
+                }
+
+                if (!soloValidar)
+                {
+                    MembershipUser newUser = Membership.CreateUser(usuario, password, correo);
+
+                    return EnviarConfirmacion(usuario, 1, "", "");
+                }
+               
+           
+ return true;
         
         }
 
