@@ -102,6 +102,20 @@ namespace BLL
         {
             char[] caracteresValidos = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-', '_', '@','!','#','$','%','&','*','(',')' };
 
+            //Validar Campos requeridos
+            usuario = usuario.Trim();
+            password = password.Trim();
+            correo = correo.Trim();
+
+            if (String.IsNullOrEmpty(usuario))
+            { throw new Exception("MENSAJEERROREl nombre de usuario es requerido!"); }
+
+            if (String.IsNullOrEmpty(password))
+            { throw new Exception("MENSAJEERROREl password es requerido!"); }
+
+            if (String.IsNullOrEmpty(correo))
+            { throw new Exception("MENSAJEERROREl correo es requerido!"); }
+
 
             //Validar nombre de username
                 var us = pe.Usuarios.Where(x => x.aspnet_Users.LoweredUserName == usuario.ToLower());
