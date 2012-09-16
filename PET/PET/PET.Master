@@ -11,8 +11,9 @@
     <form id="Form1" runat="server">
     <asp:ScriptManager ID="ScriptManager" runat="server" />
     <div id="header">
-        <a href="">Home</a> <a href="">Profile</a> <a href="">Settings</a> <a href="../Visitante/Busqueda.aspx">
-            Busqueda</a> <a href="../Visitante/Busqueda2.aspx">Busqueda2</a>
+        <a href=""><span>Home</span> </a><a href=""><span>Profile</span></a> <a href=""><span>
+            Settings</span></a> <a href="../Visitante/Busqueda.aspx"><span>Busqueda</span></a>
+        <a href="../Visitante/Busqueda2.aspx"><span>Busqueda2</span></a>
     </div>
     <div id="mc">
         &nbsp;
