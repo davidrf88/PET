@@ -105,6 +105,7 @@
                     </asp:DropDownList>
                 </td>
                 <td>
+                <br />
                     <asp:Button ID="BCargar" runat="server" Text="Cargar" OnClick="BCargar_Click" />
                     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
                 </td>
