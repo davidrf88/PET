@@ -72,6 +72,11 @@ namespace PET.Visitante
 
         }
 
+        protected void BRegistrarVerdadero0_Click(object sender, EventArgs e)
+        {
+           
+        }
+
        
 
        

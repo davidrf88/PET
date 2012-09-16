@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="RegistrarCuenta.aspx.cs" Inherits="PET.Visitante.RegistrarCuenta" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PET.Master" AutoEventWireup="true" CodeBehind="RegistrarCuenta.aspx.cs" Inherits="PET.Visitante.RegistrarCuenta" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .style1
@@ -195,7 +195,8 @@
                         &nbsp;</td>
                     <td align="center" class="style2">
                         <asp:Button ID="BRegistrarVerdadero0" runat="server" Height="36px" 
-                            Text="Pagina Principal" Width="176px" />
+                            Text="Pagina Principal" Width="176px" 
+                            onclick="BRegistrarVerdadero0_Click" />
                     </td>
                     <td>
                         &nbsp;</td>
