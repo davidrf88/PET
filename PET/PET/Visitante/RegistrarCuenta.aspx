@@ -1,205 +1,295 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PET.Master" AutoEventWireup="true" CodeBehind="RegistrarCuenta.aspx.cs" Inherits="PET.Visitante.RegistrarCuenta" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/PET.Master" AutoEventWireup="true"
+    CodeBehind="RegistrarCuenta.aspx.cs" Inherits="PET.Visitante.RegistrarCuenta" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .style1
         {
             width: 14px;
         }
-        .style2
+        .RegistrarTitulo
         {
             width: 459px;
+            color:White;
+            font-size:25px;
+            font-family:Comic Sans MS;
         }
         .style3
         {
             width: 272px;
         }
+        
+        .watermark {
+			color:Gray !important;
+		}
+		.watermark2 {
+			color: #999 !important;
+			font-style: italic !important;
+		}
+		.watermark3 {
+			color: #c77 !important;
+		}        .divRegistrar
+        {
+            width: 500px;
+             height: 300px;
+              background-color:rgb(72,72,72) ;
+             border-radius: 15px;
+            -ms-border-radius: 15px;
+            -moz-border-radius: 15px;
+            -webkit-border-radius: 15px;
+            -khtml-border-radius: 15px;
+        }
+        
     </style>
+    <link href="../Styles/uniform.default.css" rel="stylesheet" type="text/css" />
+    <script src="../Scripts/jquery-1.4.1.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.uniform.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.watermark.js" type="text/javascript"></script>
+    <script type="text/jscript" language="javascript">
+        function pageLoad(sender, args) {
+            
+            $(".txtUsuario").watermark(" Usuario ");
+            $(".txtPassword").watermark(" Password ");
+            $(".txtCorreo").watermark(" Correo ");
+
+            $("input, textarea, select,password, button").uniform();
+        }
+
+        $(function () {
+           
+
+
+        });
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+<div style=" padding-left:20px;">
+  <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+
     <p>
         <br />
     </p>
     <asp:Panel ID="PComenzar" runat="server">
-
-    <div style="width: 500px; height: 300px; background-image: url('../Images/petbg.jpg');">
-        <table style="width: 100%; height: 100%;">
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-                <td class="style2">
-                    Registrate</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-                <td class="style2">
-                    <asp:TextBox ID="txtUsuario" runat="server" Font-Size="X-Large" Height="40px" 
-                        Width="430px"></asp:TextBox>
-                </td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-                <td class="style2">
-                    <asp:TextBox ID="txtPassword" runat="server" Font-Size="X-Large" Height="40px" 
-                        Width="430px"></asp:TextBox>
-                </td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-                <td class="style2">
-                    <asp:TextBox ID="txtCorreo" runat="server" Font-Size="X-Large" Height="40px" 
-                        Width="430px"></asp:TextBox>
-                </td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-                <td align="right" class="style2">
-                    <table style="width:100%;">
-                        <tr>
-                            <td align="left" class="style3">
-                                <asp:Label ID="LError" runat="server" Font-Bold="True" ForeColor="Maroon"></asp:Label>
-                            </td>
-                            <td>
-                                <asp:Button ID="BRegistrar" runat="server" Height="36px" 
-                                    onclick="BRegistrar_Click" Text="Registrarse" Width="176px" />
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-        </table>
-        <br />
-        <br />
-    </div>
+      
+          <div class="divRegistrar">
+            <table style="width: 100%; height: 100%;">
+                <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td class="RegistrarTitulo">
+                        Registrate
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td class="style2">
+                        <asp:TextBox ID="txtUsuario" class="txtUsuario" runat="server" Font-Size="X-Large"
+                            Height="40px" Width="450px"></asp:TextBox>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td class="style2">
+                        <asp:TextBox ID="txtPassword" class="txtPassword" runat="server" Font-Size="X-Large"
+                            Height="40px" Width="450px" TextMode="Password" ViewStateMode="Enabled"></asp:TextBox>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td class="style2">
+                        <asp:TextBox ID="txtCorreo" class="txtCorreo" runat="server" Font-Size="X-Large"
+                            Height="40px" Width="450px"></asp:TextBox>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td align="right" class="style2">
+                        <table style="width: 100%;">
+                            <tr>
+                                <td align="left" class="style3">
+                                    &nbsp;
+                                    <asp:Image ID="IError" runat="server" ImageUrl="~/Images/warning.png" 
+                                        Visible="False" />
+                                    &nbsp;<asp:Label ID="LError" runat="server" Font-Bold="True" ForeColor="Silver"></asp:Label>
+                                </td>
+                                <td>
+                                    <asp:Button ID="BRegistrar" runat="server" Height="36px" OnClick="BRegistrar_Click"
+                                        Text="Registrarse" Width="176px" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+            </table>
+            <br />
+            <br />
+        </div>
+      
+      
     </asp:Panel>
-
     <p>
         <br />
     </p>
+
     <asp:Panel ID="PConfirmar" runat="server" Visible="False">
-    <div style="width: 500px; height: 300px; background-image: url('../Images/petbg.jpg');">
-        <table style="width: 100%; height: 100%;">
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-                <td class="style2">
-                    Es Correcta esta informacion?</td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-                <td class="style2">
-                    <asp:Label ID="LUsuario" runat="server" Font-Size="X-Large"></asp:Label>
-                </td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-                <td class="style2">
-                    <asp:Label ID="LCorreo" runat="server" Font-Size="X-Large"></asp:Label>
-                </td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-                <td class="style2">
-                    <asp:Label ID="LErrorVerdadero" runat="server" Font-Bold="True" 
-                        ForeColor="Maroon"></asp:Label>
-                </td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-            <tr>
-                <td class="style1">
-                    &nbsp;</td>
-                <td align="right" class="style2">
-                    <table style="width:100%;">
-                        <tr>
-                            <td align="left" class="style3">
-                                <asp:Button ID="BCancelar" runat="server" Height="36px" 
-                                    onclick="BCancelar_Click" Text="Cancelar" Width="176px" />
-                            </td>
-                            <td>
-                                <asp:Button ID="BRegistrarVerdadero" runat="server" Height="36px" 
-                                    onclick="BRegistrarVerdadero_Click" Text="Registrarse" Width="176px" />
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-                <td>
-                    &nbsp;</td>
-            </tr>
-        </table>
-      
-       
-    </div>
+        <div class="divRegistrar">
+            <table style="width: 100%; height: 100%;">
+                <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td class="RegistrarTitulo">
+                        Es Correcta esta informacion?
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td class="style2">
+                        <asp:Label ID="LUsuario" runat="server" Font-Size="X-Large" ForeColor="Silver"></asp:Label>
+                        <asp:HiddenField ID="HDDPassword" runat="server" />
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td class="style2">
+                        <asp:Label ID="LCorreo" runat="server" Font-Size="X-Large" ForeColor="Silver"></asp:Label>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td class="style2">
+                        <asp:Label ID="LErrorVerdadero" runat="server" Font-Bold="True" ForeColor="Silver"></asp:Label>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td align="right" >
+                        <table style="width: 100%;">
+                            <tr>
+                                <td align="left" class="style3">
+                                    <asp:Button ID="BCancelar" runat="server" Height="36px" OnClick="BCancelar_Click"
+                                        Text="Cancelar" Width="176px" />
+                                </td>
+                                <td>
+                                    <asp:Button ID="BRegistrarVerdadero" runat="server" Height="36px" OnClick="BRegistrarVerdadero_Click"
+                                        Text="Registrarse" Width="176px" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+            </table>
+        </div>
     </asp:Panel>
     <br />
     <br />
     <asp:Panel ID="PFinalizar" runat="server" Visible="False">
-     <div style="width: 500px; height: 300px; background-image: url('../Images/petbg.jpg');">
+        <div class="divRegistrar">
             <table style="width: 100%; height: 100%;">
                 <tr>
                     <td class="style1">
-                        &nbsp;</td>
-                    <td class="style2">
-                        Felicidades&nbsp; te has unido a PET</td>
-                    <td>
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="style1">
-                        &nbsp;</td>
-                    <td class="style2">
-                        Hemos enviado un correo de confirmacion a la cuenta de correo proporcionada.</td>
-                    <td>
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="style1">
-                        &nbsp;</td>
-                    <td class="style2">
-                        &nbsp;</td>
-                    <td>
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="style1">
-                        &nbsp;</td>
-                    <td class="style2">
-                        &nbsp;</td>
-                    <td>
-                        &nbsp;</td>
-                </tr>
-                <tr>
-                    <td class="style1">
-                        &nbsp;</td>
-                    <td align="center" class="style2">
-                        <asp:Button ID="BRegistrarVerdadero0" runat="server" Height="36px" 
-                            Text="Pagina Principal" Width="176px" 
-                            onclick="BRegistrarVerdadero0_Click" />
+                        &nbsp;
+                    </td>
+                    <td class="RegistrarTitulo">
+                        Felicidades&nbsp; te has unido a PET
                     </td>
                     <td>
-                        &nbsp;</td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td style="color: #C0C0C0; font-weight: bold;">
+                        Hemos enviado un correo de confirmacion a la cuenta&nbsp; proporcionada.
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td class="style2">
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td class="style2">
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+                <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td align="center" class="style2">
+                        <asp:Button ID="BTerminarRegistro" runat="server" Height="36px" Text="Pagina Principal"
+                            Width="176px" 
+                            OnClientClick=" window.location = '../Inicio.aspx'; return false;" />
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
                 </tr>
             </table>
             <br />
@@ -208,9 +298,11 @@
             <br />
         </div>
     </asp:Panel>
-
     <p>
         <br />
         <br />
     </p>
+      </ContentTemplate>
+        </asp:UpdatePanel>
+    </div>
 </asp:Content>

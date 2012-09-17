@@ -21,8 +21,10 @@ namespace PET.Visitante
         {
             try
             {
-                busuario.CrearUsuario(txtUsuario.Text.Trim(), txtCorreo.Text.Trim(), txtPassword.Text.Trim(),true);
+                busuario.CrearUsuario(txtUsuario.Text, txtCorreo.Text, txtPassword.Text,true);
+                HDDPassword.Value = txtPassword.Text;
                 LError.Text = "";
+                IError.Visible = false;
                 PComenzar.Visible = false;
                 PFinalizar.Visible = false;
                 PConfirmar.Visible = true;
@@ -31,6 +33,7 @@ namespace PET.Visitante
             }
             catch (Exception ex)
             {
+                IError.Visible = true;
                 if (ex.Message.StartsWith("MENSAJEERROR"))
                 { LError.Text = ex.Message.Replace("MENSAJEERROR", ""); }
                 else
@@ -53,7 +56,7 @@ namespace PET.Visitante
 
             try
             {
-                busuario.CrearUsuario(txtUsuario.Text.Trim(), txtCorreo.Text.Trim(), txtPassword.Text.Trim(), false);
+                busuario.CrearUsuario(txtUsuario.Text, txtCorreo.Text, HDDPassword.Value.ToString(), false);
                 LError.Text = "";
                 PComenzar.Visible = false;
                 PConfirmar.Visible = false;
@@ -72,10 +75,9 @@ namespace PET.Visitante
 
         }
 
-        protected void BRegistrarVerdadero0_Click(object sender, EventArgs e)
-        {
-           
-        }
+       
+       
+      
 
        
 

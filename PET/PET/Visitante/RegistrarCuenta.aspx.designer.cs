@@ -13,6 +13,15 @@ namespace PET.Visitante {
     public partial class RegistrarCuenta {
         
         /// <summary>
+        /// UpdatePanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
+        
+        /// <summary>
         /// PComenzar control.
         /// </summary>
         /// <remarks>
@@ -49,6 +58,15 @@ namespace PET.Visitante {
         protected global::System.Web.UI.WebControls.TextBox txtCorreo;
         
         /// <summary>
+        /// IError control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image IError;
+        
+        /// <summary>
         /// LError control.
         /// </summary>
         /// <remarks>
@@ -83,6 +101,15 @@ namespace PET.Visitante {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LUsuario;
+        
+        /// <summary>
+        /// HDDPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HDDPassword;
         
         /// <summary>
         /// LCorreo control.
@@ -130,12 +157,12 @@ namespace PET.Visitante {
         protected global::System.Web.UI.WebControls.Panel PFinalizar;
         
         /// <summary>
-        /// BRegistrarVerdadero0 control.
+        /// BTerminarRegistro control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BRegistrarVerdadero0;
+        protected global::System.Web.UI.WebControls.Button BTerminarRegistro;
     }
 }
