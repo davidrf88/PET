@@ -6,6 +6,7 @@
     <edmx:StorageModels>
     <Schema Namespace="PETModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
         <EntityContainer Name="PETModelStoreContainer">
+          <EntitySet Name="aspnet_Membership" EntityType="PETModel.Store.aspnet_Membership" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="aspnet_Roles" EntityType="PETModel.Store.aspnet_Roles" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="aspnet_Users" EntityType="PETModel.Store.aspnet_Users" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="aspnet_UsersInRoles" EntityType="PETModel.Store.aspnet_UsersInRoles" store:Type="Tables" Schema="dbo" />
@@ -17,6 +18,10 @@
           <EntitySet Name="Razas" EntityType="PETModel.Store.Razas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="TiposMascotas" EntityType="PETModel.Store.TiposMascotas" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Usuarios" EntityType="PETModel.Store.Usuarios" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK__aspnet_Me__UserI__22AA2996" Association="PETModel.Store.FK__aspnet_Me__UserI__22AA2996">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
           <AssociationSet Name="FK__aspnet_Us__RoleI__4AB81AF0" Association="PETModel.Store.FK__aspnet_Us__RoleI__4AB81AF0">
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
             <End Role="aspnet_UsersInRoles" EntitySet="aspnet_UsersInRoles" />
@@ -66,6 +71,32 @@
             <End Role="Usuarios" EntitySet="Usuarios" />
           </AssociationSet>
         </EntityContainer>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="ApplicationId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="PasswordFormat" Type="int" Nullable="false" />
+          <Property Name="PasswordSalt" Type="nvarchar" Nullable="false" MaxLength="128" />
+          <Property Name="MobilePIN" Type="nvarchar" MaxLength="16" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="LoweredEmail" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordQuestion" Type="nvarchar" MaxLength="256" />
+          <Property Name="PasswordAnswer" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsApproved" Type="bit" Nullable="false" />
+          <Property Name="IsLockedOut" Type="bit" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLoginDate" Type="datetime" Nullable="false" />
+          <Property Name="LastPasswordChangedDate" Type="datetime" Nullable="false" />
+          <Property Name="LastLockoutDate" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptCount" Type="int" Nullable="false" />
+          <Property Name="FailedPasswordAnswerAttemptWindowStart" Type="datetime" Nullable="false" />
+          <Property Name="Comment" Type="ntext" />
+        </EntityType>
         <EntityType Name="aspnet_Roles">
           <Key>
             <PropertyRef Name="RoleId" />
@@ -178,6 +209,18 @@
           <Property Name="Status" Type="varchar(max)" Nullable="false" />
           <Property Name="UUID" Type="varchar(max)" />
         </EntityType>
+        <Association Name="FK__aspnet_Me__UserI__22AA2996">
+          <End Role="aspnet_Users" Type="PETModel.Store.aspnet_Users" Multiplicity="1" />
+          <End Role="aspnet_Membership" Type="PETModel.Store.aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__aspnet_Us__RoleI__4AB81AF0">
           <End Role="aspnet_Roles" Type="PETModel.Store.aspnet_Roles" Multiplicity="1" />
           <End Role="aspnet_UsersInRoles" Type="PETModel.Store.aspnet_UsersInRoles" Multiplicity="*" />
@@ -381,6 +424,11 @@
             <End Role="aspnet_Roles" EntitySet="aspnet_Roles" />
             <End Role="aspnet_Users" EntitySet="aspnet_Users" />
           </AssociationSet>
+          <EntitySet Name="aspnet_Membership" EntityType="PETModel.aspnet_Membership" />
+          <AssociationSet Name="FK__aspnet_Me__UserI__22AA2996" Association="PETModel.FK__aspnet_Me__UserI__22AA2996">
+            <End Role="aspnet_Users" EntitySet="aspnet_Users" />
+            <End Role="aspnet_Membership" EntitySet="aspnet_Membership" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="aspnet_Roles">
           <Key>
@@ -406,6 +454,7 @@
           <Property Name="LastActivityDate" Type="DateTime" Nullable="false" />
           <NavigationProperty Name="Usuarios" Relationship="PETModel.FK_Usuarios_aspnet_Users" FromRole="aspnet_Users" ToRole="Usuarios" />
           <NavigationProperty Name="aspnet_Roles" Relationship="PETModel.aspnet_UsersInRoles" FromRole="aspnet_Users" ToRole="aspnet_Roles" />
+          <NavigationProperty Name="aspnet_Membership" Relationship="PETModel.FK__aspnet_Me__UserI__22AA2996" FromRole="aspnet_Users" ToRole="aspnet_Membership" />
         </EntityType>
         <EntityType Name="Contactos">
           <Key>
@@ -632,6 +681,45 @@
           <End Role="aspnet_Roles" Type="PETModel.aspnet_Roles" Multiplicity="*" />
           <End Role="aspnet_Users" Type="PETModel.aspnet_Users" Multiplicity="*" />
         </Association>
+        <EntityType Name="aspnet_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Type="Guid" Name="ApplicationId" Nullable="false" />
+          <Property Type="Guid" Name="UserId" Nullable="false" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PasswordFormat" Nullable="false" />
+          <Property Type="String" Name="PasswordSalt" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MobilePIN" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="LoweredEmail" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PasswordQuestion" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PasswordAnswer" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsApproved" Nullable="false" />
+          <Property Type="Boolean" Name="IsLockedOut" Nullable="false" />
+          <Property Type="DateTime" Name="CreateDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastLoginDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastPasswordChangedDate" Nullable="false" />
+          <Property Type="DateTime" Name="LastLockoutDate" Nullable="false" />
+          <Property Type="Int32" Name="FailedPasswordAttemptCount" Nullable="false" />
+          <Property Type="DateTime" Name="FailedPasswordAttemptWindowStart" Nullable="false" />
+          <Property Type="Int32" Name="FailedPasswordAnswerAttemptCount" Nullable="false" />
+          <Property Type="DateTime" Name="FailedPasswordAnswerAttemptWindowStart" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="aspnet_Users" Relationship="PETModel.FK__aspnet_Me__UserI__22AA2996" FromRole="aspnet_Membership" ToRole="aspnet_Users" />
+        </EntityType>
+        <Association Name="FK__aspnet_Me__UserI__22AA2996">
+          <End Type="PETModel.aspnet_Users" Role="aspnet_Users" Multiplicity="1" />
+          <End Type="PETModel.aspnet_Membership" Role="aspnet_Membership" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="aspnet_Users">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="aspnet_Membership">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -720,6 +808,33 @@
               <ScalarProperty Name="UserId" ColumnName="UserId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="aspnet_Membership">
+            <EntityTypeMapping TypeName="PETModel.aspnet_Membership">
+              <MappingFragment StoreEntitySet="aspnet_Membership">
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptWindowStart" ColumnName="FailedPasswordAnswerAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAnswerAttemptCount" ColumnName="FailedPasswordAnswerAttemptCount" />
+                <ScalarProperty Name="FailedPasswordAttemptWindowStart" ColumnName="FailedPasswordAttemptWindowStart" />
+                <ScalarProperty Name="FailedPasswordAttemptCount" ColumnName="FailedPasswordAttemptCount" />
+                <ScalarProperty Name="LastLockoutDate" ColumnName="LastLockoutDate" />
+                <ScalarProperty Name="LastPasswordChangedDate" ColumnName="LastPasswordChangedDate" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="IsLockedOut" ColumnName="IsLockedOut" />
+                <ScalarProperty Name="IsApproved" ColumnName="IsApproved" />
+                <ScalarProperty Name="PasswordAnswer" ColumnName="PasswordAnswer" />
+                <ScalarProperty Name="PasswordQuestion" ColumnName="PasswordQuestion" />
+                <ScalarProperty Name="LoweredEmail" ColumnName="LoweredEmail" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MobilePIN" ColumnName="MobilePIN" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordFormat" ColumnName="PasswordFormat" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ApplicationId" ColumnName="ApplicationId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -752,8 +867,8 @@
         <EntityTypeShape EntityType="PETModel.TiposMascotas" Width="1.5" PointX="6" PointY="1.75" Height="1.4279589843749996" IsExpanded="true" />
         <EntityTypeShape EntityType="PETModel.Usuarios" Width="1.5" PointX="5.25" PointY="4.375" Height="2.5783902994791674" IsExpanded="true" />
         <AssociationConnector Association="PETModel.FK_Usuarios_aspnet_Users" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="5.582021484375" />
-          <ConnectorPoint PointX="5.25" PointY="5.582021484375" />
+          <ConnectorPoint PointX="4.5" PointY="5.6641951497395837" />
+          <ConnectorPoint PointX="5.25" PointY="5.6641951497395837" />
         </AssociationConnector>
         <AssociationConnector Association="PETModel.FK_Contactos_Mascotas" ManuallyRouted="false">
           <ConnectorPoint PointX="10.5" PointY="5.6607161458333328" />
@@ -802,6 +917,12 @@
         <AssociationConnector Association="PETModel.aspnet_UsersInRoles" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="5.58550048828125" />
           <ConnectorPoint PointX="3" PointY="5.58550048828125" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="PETModel.aspnet_Membership" Width="1.5" PointX="5.25" PointY="8.375" Height="4.5505582682291745" />
+        <AssociationConnector Association="PETModel.FK__aspnet_Me__UserI__22AA2996" >
+          <ConnectorPoint PointX="3.75" PointY="6.9533902994791665" />
+          <ConnectorPoint PointX="3.75" PointY="10.650279134114587" />
+          <ConnectorPoint PointX="5.25" PointY="10.650279134114587" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>
