@@ -53,6 +53,8 @@ namespace PET.Visitante
 
         protected void BRegistrarVerdadero_Click(object sender, EventArgs e)
         {
+            if (HDDCaptcha.Value != "1")
+            { LErrorVerdadero.Text = "Vuelve a intentar!"; return; }
 
             try
             {

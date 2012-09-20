@@ -31,7 +31,7 @@
 		}        .divRegistrar
         {
             width: 500px;
-             height: 300px;
+             height: 400px;
               background-color:rgb(72,72,72) ;
              border-radius: 15px;
             -ms-border-radius: 15px;
@@ -42,9 +42,11 @@
         
     </style>
     <link href="../Styles/uniform.default.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/jquery.motionCaptcha.0.2.css" rel="stylesheet" type="text/css" />
     <script src="../Scripts/jquery-1.4.1.js" type="text/javascript"></script>
     <script src="../Scripts/jquery.uniform.js" type="text/javascript"></script>
     <script src="../Scripts/jquery.watermark.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery.motionCaptcha.0.2.js" type="text/javascript"></script>
     <script type="text/jscript" language="javascript">
         function pageLoad(sender, args) {
             
@@ -53,6 +55,14 @@
             $(".txtCorreo").watermark(" Correo ");
 
             $("input, textarea, select,password, button").uniform();
+
+            var regb = $(".mc-actionb");
+
+            regb.hide();
+
+            $('#mc-form').motionCaptcha({
+                shapes: ['triangle', 'x', 'rectangle', 'circle', 'check', 'zigzag', 'arrow', 'delete', 'pigtail', 'star']
+            });
         }
 
         $(function () {
@@ -175,8 +185,11 @@
                         &nbsp;
                     </td>
                     <td class="style2">
-                        <asp:Label ID="LUsuario" runat="server" Font-Size="X-Large" ForeColor="Silver"></asp:Label>
+                        <asp:Label ID="LUsuario" runat="server" Font-Size="Medium" ForeColor="Silver"></asp:Label>
                         <asp:HiddenField ID="HDDPassword" runat="server" />
+                        <div class ="HDDCaptcha">
+                        <asp:HiddenField ID="HDDCaptcha" runat="server" />
+                        </div>
                     </td>
                     <td>
                         &nbsp;
@@ -187,18 +200,44 @@
                         &nbsp;
                     </td>
                     <td class="style2">
-                        <asp:Label ID="LCorreo" runat="server" Font-Size="X-Large" ForeColor="Silver"></asp:Label>
+                        <asp:Label ID="LCorreo" runat="server" Font-Size="Medium" ForeColor="Silver"></asp:Label>
                     </td>
+                    
                     <td>
                         &nbsp;
                     </td>
                 </tr>
+                  <tr>
+                    <td class="style1">
+                        &nbsp;
+                    </td>
+                    <td>
+                    <div style="  vertical-align: middle;" align="center">
+                    <div id="mc-form">
+                    <div id="mcx">
+					<p style="color: #C0C0C0">dibuja la figura que ves para continuar:</p>
+					<canvas id="mc-canvas">
+						Tu navegador es algo viejo intenta uno mas nuevo.
+					</canvas>
+					
+				</div>
+                </div>
+
+                </div>
+                     
+                    </td>
+                    
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+
                 <tr>
                     <td class="style1">
                         &nbsp;
                     </td>
                     <td class="style2">
-                        <asp:Label ID="LErrorVerdadero" runat="server" Font-Bold="True" ForeColor="Silver"></asp:Label>
+                        <asp:Label ID="LErrorVerdadero" class="errorVerdadero" runat="server" Font-Bold="True" ForeColor="Silver"></asp:Label>
                     </td>
                     <td>
                         &nbsp;
@@ -216,7 +255,7 @@
                                         Text="Cancelar" Width="176px" />
                                 </td>
                                 <td>
-                                    <asp:Button ID="BRegistrarVerdadero" runat="server" Height="36px" OnClick="BRegistrarVerdadero_Click"
+                                    <asp:Button ID="BRegistrarVerdadero" class="mc-actionb" runat="server" Height="36px" OnClick="BRegistrarVerdadero_Click"
                                         Text="Registrarse" Width="176px" />
                                 </td>
                             </tr>
