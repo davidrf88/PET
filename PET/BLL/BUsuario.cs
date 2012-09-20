@@ -100,7 +100,11 @@ namespace BLL
 
         public bool CrearUsuario(string usuario,string correo,string password,bool soloValidar)
         {
-            char[] caracteresValidos = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', '-', '_', '@','!','#','$','%','&','*','(',')' };
+           
+            if (usuario == " Usuario ") { usuario = ""; }
+            if (password == " Password ") { password = ""; }
+            if (correo == " Correo ") { correo = ""; }
+
 
             //Validar Campos requeridos
             usuario = usuario.Trim();
@@ -125,21 +129,18 @@ namespace BLL
                 if (usuario.Trim().Length < 6)
                 { throw new Exception("MENSAJEERRORIntenta un nombre de usuario mas grande!"); }
             //Validar Caracteres  username
-                foreach (char c in usuario.Trim().ToLower())
-                { if (caracteresValidos.Contains(c)) continue;
-                else throw new Exception("MENSAJEERRORTu usuario contiene caracteres no permitidos!");
-                }
+                if(! CaracteresPermitidos.validar(usuario, false))
+                 throw new Exception("MENSAJEERRORTu usuario contiene caracteres no permitidos!");
+               
 
 
                 //Validar Longitud password
                 if (password.Trim().Length < 6)
                 { throw new Exception("MENSAJEERRORIntenta un password mas grande!"); }
                 //Validar Caracteres password
-                foreach (char c in password.Trim())
-                {
-                    if (caracteresValidos.Contains(c)) continue;
-                    else throw new Exception("MENSAJEERRORTu password contiene caracteres no permitidos!");
-                }
+                if (!CaracteresPermitidos.validar(password, false))
+                    throw new Exception("MENSAJEERRORTu password contiene caracteres no permitidos!");
+               
 
                 string strRegex = @"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}" +
             @"\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\" +
@@ -149,6 +150,11 @@ namespace BLL
                 {
                     throw new Exception("MENSAJEERRORIngresa un correo valido!");
                 }
+                //Validar correo repetido
+                var usc = pe.Usuarios.Where(x => x.aspnet_Users.aspnet_Membership.Email.ToLower() == correo.ToLower());
+                if (usc.Count() > 0)
+                { throw new Exception("MENSAJEERRORCorreo registado anteriormente!"); }
+
 
                 if (!soloValidar)
                 {
