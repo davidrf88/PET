@@ -22,6 +22,7 @@ namespace PET.Account
             try
             {
                 busuario.ValidarEntrada(LoginUser.UserName);
+                
             }
             catch (Exception ex)
             {
