@@ -16,7 +16,7 @@
         <a href="../Visitante/RegistrarCuenta.aspx"><span>Registrarse</span></a>
     </div>
     <div id="mc">
-        &nbsp;
+       
         <div id="main">
             <asp:ContentPlaceHolder runat="server" ID="MainContent" />
         </div>
